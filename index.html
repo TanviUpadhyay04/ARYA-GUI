@@ -6,37 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARYA GUI</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
     <link rel="stylesheet" href="gauge.css" />
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/vis-network/standalone/vis-network.min.css">
-    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  
-   
+    
+    <!-- <link rel="stylesheet" href="https://unpkg.com/vis-network/standalone/vis-network.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script> -->
+    <!--leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     
     </head>
-<body>
+<body>  
   
     <div class="fullscreen">
     <!--NAVBAR-->
     <div class="containers">
       <div class="logo-flag">
-        <img class="logo" src="images/Arya logo.png" alt="">
-        <img class="flag" src="images/Flag_of_India.png" alt="">
+        <!-- <img class="logo" src="images/Arya logo.png" alt=""> -->
+        <!-- <img class="flag" src="images/Flag_of_India.png" alt=""> -->
       </div>
            <div class="team-name"> 
                <h1>TEAM DJS ARYA</h1>
            </div>
            <div class="nav-box-2">
             <div class="box-text-2">
-                <img class="team-id" src="images/Team ID.png" alt="">
+                <!-- <img class="team-id" src="images/Team ID.png" alt=""> -->
                <div class="div-text"><h2>Team ID 2005</h2>
                </div>
                 </div>
            </div>
            <div class="nav-box-1">
             <div class="box-text-1">
-                <img class="mission-time" src="images/Mission Time.png" alt="">
+                <!-- <img class="mission-time" src="images/Mission Time.png" alt=""> -->
                 <h2>Mission Time  03:42:46.15</h2>
                 </div>
            </div>
@@ -44,11 +47,14 @@
            <div class="buttons">
                 <div class="button-flex">
                 <a href="#" class="button">
-                    <img class="play" src="images/heroicons-solid_play.png" alt=""></a>
+                    <!-- <img class="play" src="images/heroicons-solid_play.png" alt=""> -->
+                  </a>
                     <a href="#" class="button">
-                        <img class="play" src="images/carbon_stop-filled.png" alt=""></a>
+                        <!-- <img class="play" src="images/carbon_stop-filled.png" alt=""> -->
+                      </a>
                         <a href="#" class="button">
-                            <img class="play" src="images/pepicons-print_arrow-spin.png" alt=""></a>
+                            <!-- <img class="play" src="images/pepicons-print_arrow-spin.png" alt=""> -->
+                          </a>
                         </div>
               </div>    
        
@@ -69,7 +75,8 @@
                   </div>
                   <div class="submit">
                     <a href="#" class="enter-button">
-                      <img class="input-command" src="images/arrow-right (1).png" alt=""></a>
+                      <!-- <img class="input-command" src="images/arrow-right (1).png" alt=""> -->
+                    </a>
                   </div>
                  
                 </div>
@@ -199,7 +206,7 @@
             </div>
             <div class="img-area">
               <a href="#">
-                <img src="images/Point.png" alt="">
+                <!-- <img src="images/Point.png" alt=""> -->
 
               </a>
             </div>
@@ -210,7 +217,7 @@
           </div>
             <div class="img-area">
               <a href="#">
-                <img src="images/Point.png" alt="">
+                <!-- <img src="images/Point.png" alt=""> -->
                 </a>
                 
             </div>
@@ -222,7 +229,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <!-- <img src="images/Point.png" alt=""> -->
                 </a>
             </div>
           </div>
@@ -232,7 +239,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <!-- <img src="images/Point.png" alt=""> -->
                 </a>
             </div>
           </div>
@@ -242,7 +249,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <!-- <img src="images/Point.png" alt=""> -->
                 </a>
             </div>
           </div>
@@ -252,7 +259,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <!-- <img src="images/Point.png" alt=""> -->
                 
               </a>
             </div>
@@ -260,176 +267,10 @@
         </div>
     </div>
     </div>
-    <div class="change-slides">
-    <div class="options">
-      <div class="graph">
-          <div class="font"><button class="font1" id="all-graphs" onclick="hideElements1()">GRAPHS
-            
-          </button>
-            
-          </div>
-      </div>
-      <div class="csv">
-          <div class="csv-style"><button class="font1" id="all-csv" onclick="hideElements2()">CSV
-           
-          </button>
-            
-          </div>
-      </div>
-      <div class="co-ordinates">
-         <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="hideElements3()">CO-ORDINATES
-          
-         </button>
-          
-        </div>
-      </div>
-    </div>
+    <div id="map" style="width: 770px; height: 500px;"></div>
   </div>
-
-<div class="graphs">
-        <div class="graph-box">
-          <div class="pressure">
-            PRESSURE
-            <div class="pressure-graph">
-             <canvas id="myChart"></canvas>
-            </div>
-          </div>
-          <div class="pressure">
-            TEMPERATURE
-            <div class="pressure-graph">
-              <canvas id="myChart_temp"></canvas>
-             </div>
-          </div>
-
-        </div>
-        <div class="graph-box">
-          <div class="pressure">
-            ALTITUDE
-            <div class="pressure-graph">
-              <canvas id="myChart_alt"></canvas>
-             </div>
-          </div>
-          <div class="pressure">
-            3D GRAPH
-            <div class="three-div"></div>
-            <div id="staticGraph"></div>
-<div id="dynamicGraph"></div>
-
-
-          </div>
-    </div>
-    <div class="graph-box">
-      <div class="pressure">
-        VOLTAGE
-        <div class="pressure-graph">
-          <canvas id="myChart_volt"></canvas>
-         </div>
-      </div>
-      <div class="pressure">
-        TILT_X,TILT_Y
-        <div class="pressure-graph">
-          <canvas id="myChart_tilt"></canvas>
-         </div>
-      </div>
-
-      </div>
-  </div>
-
-</div>
+  <script src="script.js"></script>
 </body>
-
-<!--2D Graphs-->
-<script>
-  var data = {
-    labels: [],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [],
-        borderColor: '#5C64B7',
-        lineTension: 0.22,
-        backgroundColor: '#E5E7FD'
-      }
-    ]
-  };
-
-  var config = {
-    type: 'line',
-    data: data,
-  };
-
-  var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-
-  var myChart_temp = new Chart(
-    document.getElementById('myChart_temp'),
-    config
-  );
-  var myChart_alt = new Chart(
-    document.getElementById('myChart_alt'),
-    config
-  );
-  var myChart_volt = new Chart(
-    document.getElementById('myChart_volt'),
-    config
-  );
-  var myChart_tilt = new Chart(
-    document.getElementById('myChart_tilt'),
-    config
-  );
-
-  window.setInterval(mycallback, 1000);
-
-  function mycallback() {
-    var now = new Date();
-    now = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-    var value = Math.floor(Math.random() * 1000);
-    
-    
-    if (data.labels.length >= 10) {
-      data.labels.shift();
-      data.datasets[0].data.shift();
-    }
-
-    data.labels.push(now);
-    data.datasets[0].data.push(value);
-
-    myChart.update();
-    myChart_temp.update();
-    myChart_alt.update();
-    myChart_volt.update();
-    myChart_tilt.update();
-  }
-</script>
-
-
-<!--Gauge-->
-
-<script>
-  const gaugeElement = document.querySelector(".gauge");
-  const valuesArray = [0.1,0.4,0.6,0.2,0.3,0.8]; 
-
-  function setGaugeValue(gauge, value) {
-    if (value < 0 || value > 1) {
-      return;
-    }
-
-    gauge.querySelector(".gauge-fill").style.transform = `rotate(${value / 2}turn)`;
-    gauge.querySelector(".gauge-text").textContent = `${Math.round(value * 100)}%`;
-  }
-
-  
-  let index = 0;
-  setInterval(() => {
-    setGaugeValue(gaugeElement, valuesArray[index]);
-    index = (index + 1) % valuesArray.length;
-  }, 1000); 
-</script>
-
-</script>
-
 <!--Blinking Timeline-->
 
 
@@ -475,11 +316,6 @@
   const container = document.getElementById('visGraph');
   const data = { nodes, edges };
   const options = {};
-  const network = new vis.Network(container, data, options);
+  //const network = new vis.Network(container, data, options);
 </script>
-
-
-
-
-
 </html> 

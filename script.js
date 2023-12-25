@@ -1,82 +1,79 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // create a static network
-    var staticContainer = document.getElementById('staticGraph');
+// const { update } = require("plotly.js");
 
-    // Define nodes and edges as arrays
-    var nodes = [
-        { id: 1, label: 'Node 1' },
-        { id: 2, label: 'Node 2' },
-        { id: 3, label: 'Node 3' },
-        // Add more nodes as needed
-    ];
+let dataIndex = 0;
+// let old_state= document.getElementById('L');
 
-    var edges = [
-        { from: 1, to: 2 },
-        { from: 2, to: 3 },
-        // Add more edges as needed
-    ];
+function fetchData() {
+  return fetch('data.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (dataIndex < data.length) {
+        const currentData = data[dataIndex];
+        dataIndex++;
+        if (dataIndex === data.length) {
+          dataIndex = 0;
+        }
 
-    var data = {
-        nodes: new vis.DataSet(nodes),
-        edges: new vis.DataSet(edges)
-    };
+        return {
+          temperature: currentData.TEMPERATURE,
+          pressure: currentData.PRESSURE,
+          airSpeed: currentData.AIR_SPEED,
+          missionTime: currentData.MISSION_TIME,
+          packetCount: currentData.PACKET_COUNT,
+          mode: currentData.MODE,
+          state: currentData.STATE,
+          altitude: currentData.ALTITUDE,
+          hs: currentData.HS_DEPLOYED,
+          pc: currentData.PC_DEPLOYED,
+          voltage: currentData.VOLTAGE,
+          gpsTime: currentData.GPS_TIME,
+          gpsAltitude: currentData.GPS_ALTITUDE,
+          latitude: currentData.GPS_LATITUDE,
+          longitude: currentData.GPS_LONGITUDE,
+          gpsSats: currentData.GPS_SATS,
+          tiltX: currentData.TILT_X,
+          tiltY: currentData.TILT_Y,
+          rotZ: currentData.ROT_Z,
+          echo: currentData.CMD_ECHO,
+        };
+      }
+    });
+}
+let map = L.map('map').setView([0, 0], 3);
 
-    var options = {
-        layout: {
-            randomSeed: 42 // Use a specific random seed for reproducibility
-        },
-        edges: {
-            smooth: {
-                type: 'continuous'
-            }
-        },
-        physics: {
-            barnesHut: {
-                gravitationalConstant: -80000,
-                springConstant: 0.002,
-                springLength: 200
-            }
-        },
-        interaction: {
-            navigationButtons: false, // Remove navigation buttons
-            keyboard: true
-        },
-        xLabel: 'X-Axis',
-        yLabel: 'Y-Axis',
-        zLabel: 'Z-Axis'
-    };
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+}).addTo(map);
 
-    var staticGraph = new vis.Network(staticContainer, data, options);
+let markers = []; // Array to store markers
 
-    // Dynamic 3D graph
-    var dynamicData = new vis.DataSet();
-    var dynamicContainer = document.getElementById('dynamicGraph');
+function updateMap(data) {
+  let latlng = [data.latitude, data.longitude];
+  map.setView(latlng, 10);
 
-    var dynamicOptions = {
-        width: '100%',
-        height: '200px',
-        style: 'bar-size',
-        showGrid: true,
-        showShadow: false,
-        keepAspectRatio: true,
-        verticalRatio: 0.5,
-        xLabel: 'Latitude',
-        yLabel: 'Longitude',
-        zLabel: 'Altitude',
-    };
+  let dotIcon = L.icon({
+    iconUrl: 'images/red_dot-removebg-preview.png',
+    iconSize: [8, 8],
+    iconAnchor: [4, 4],
+  });
 
-    var graph3d = new vis.Graph3d(dynamicContainer, dynamicData, dynamicOptions);
+  let currentMarker = L.marker(latlng).addTo(map);
 
-    setInterval(function () {
-        dynamicData.add({
-            id: new Date().getTime(), // unique id for each node
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            z: Math.random() * 100,
-            style: Math.random() * 20
-        });
+  markers.push(currentMarker);
 
-        // Update the dynamic graph
-        graph3d.setData({ nodes: dynamicData.get() });
-    }, 1000);
-});
+  markers.slice(0, -1).forEach((marker) => {
+    marker.setIcon(dotIcon);
+  });
+}
+
+setInterval(() => {
+  fetchData().then((data) => {
+    updateMap(data);
+    // count++;
+  });
+}, 1000);
