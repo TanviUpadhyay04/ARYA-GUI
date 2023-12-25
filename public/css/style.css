@@ -588,6 +588,34 @@ input:checked + .slider:before{
     animation: blink 1s infinite, sizeChange 1s infinite;
 }
 
+.csv-show{
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    height: 604px;
+    margin: 5px;
+}
+
+table{
+    border-collapse: collapse;
+    border:2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:12px;
+    text-align: center;
+}
+
+th{
+    background-color: #5C64B7;
+    color:white;
+    border:2px solid black;
+    padding:2px;
+}
+
+td{
+    border:2px solid black;
+    padding:2px'
+}
+
 @keyframes blink {
     50% {
         opacity: 0;
