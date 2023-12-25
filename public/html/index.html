@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARYA GUI</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/gauge.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <link rel="stylesheet" href="gauge.css" />
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/vis-network/standalone/vis-network.min.css">
-    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  
-   
-    
+    <script defer src="../js/script.js"></script>
+    <!-- Example: -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
     </head>
 <body>
-  
     <div class="fullscreen">
     <!--NAVBAR-->
     <div class="containers">
@@ -44,11 +41,11 @@
            <div class="buttons">
                 <div class="button-flex">
                 <a href="#" class="button">
-                    <img class="play" src="images/heroicons-solid_play.png" alt=""></a>
+                    <img class="play" src="../images/heroicons-solid_play.png" alt=""></a>
                     <a href="#" class="button">
-                        <img class="play" src="images/carbon_stop-filled.png" alt=""></a>
+                        <img class="play" src="../images/carbon_stop-filled.png" alt=""></a>
                         <a href="#" class="button">
-                            <img class="play" src="images/pepicons-print_arrow-spin.png" alt=""></a>
+                            <img class="play" src="../images/pepicons-print_arrow-spin.png" alt=""></a>
                         </div>
               </div>    
        
@@ -69,7 +66,7 @@
                   </div>
                   <div class="submit">
                     <a href="#" class="enter-button">
-                      <img class="input-command" src="images/arrow-right (1).png" alt=""></a>
+                      <img class="input-command" src="../images/arrow-right (1).png" alt=""></a>
                   </div>
                  
                 </div>
@@ -199,8 +196,7 @@
             </div>
             <div class="img-area">
               <a href="#">
-                <img src="images/Point.png" alt="">
-
+                <img src="../images/Point.png" alt="">
               </a>
             </div>
           </div>
@@ -210,7 +206,7 @@
           </div>
             <div class="img-area">
               <a href="#">
-                <img src="images/Point.png" alt="">
+                <img src="../images/Point.png" alt="">
                 </a>
                 
             </div>
@@ -222,7 +218,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <img src="../images/Point.png" alt="">
                 </a>
             </div>
           </div>
@@ -232,7 +228,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <img src="../images/Point.png" alt="">
                 </a>
             </div>
           </div>
@@ -242,7 +238,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <img src="../images/Point.png" alt="">
                 </a>
             </div>
           </div>
@@ -252,7 +248,7 @@
             </div>
             <div class="img-area">
               <a href="point-hover">
-                <img src="images/Point.png" alt="">
+                <img src="../images/Point.png" alt="">
                 
               </a>
             </div>
@@ -263,30 +259,28 @@
     <div class="change-slides">
     <div class="options">
       <div class="graph">
-          <div class="font"><button class="font1" id="all-graphs" onclick="hideElements1()">GRAPHS
+          <div class="font"><button class="font1" id="all-graphs" onclick="showElement1()">GRAPHS
             
           </button>
             
           </div>
       </div>
       <div class="csv">
-          <div class="csv-style"><button class="font1" id="all-csv" onclick="hideElements2()">CSV
+          <div class="csv-style"><button class="font1" id="all-csv" onclick="showElement2()">CSV
            
           </button>
             
           </div>
       </div>
       <div class="co-ordinates">
-         <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="hideElements3()">CO-ORDINATES
+         <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="showElement3()">CO-ORDINATES
           
          </button>
           
         </div>
-      </div>
     </div>
   </div>
-
-<div class="graphs">
+  <div class="graphs show" id="graphs">
         <div class="graph-box">
           <div class="pressure">
             PRESSURE
@@ -313,11 +307,9 @@
             3D GRAPH
             <div class="three-div"></div>
             <div id="staticGraph"></div>
-<div id="dynamicGraph"></div>
-
-
+            <div id="dynamicGraph"></div>
           </div>
-    </div>
+        </div>
     <div class="graph-box">
       <div class="pressure">
         VOLTAGE
@@ -330,11 +322,10 @@
         <div class="pressure-graph">
           <canvas id="myChart_tilt"></canvas>
          </div>
-      </div>
-
-      </div>
-  </div>
-
+         </div>
+    </div>
+  <div class="csv hide" id="csv"></div>
+  <div class="coordinates hide" id="coordinates"></div>
 </div>
 </body>
 
