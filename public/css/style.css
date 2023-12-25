@@ -609,3 +609,9 @@ input:checked + .slider:before{
    font-weight: 600;
 }
 
+.show{
+    display: inline-block;
+}
+.hide{
+    display: none;
+}
