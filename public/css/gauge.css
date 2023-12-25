@@ -1,0 +1,49 @@
+.gauge{
+    width: 100%;
+    max-width: 113px;
+    height: 57.27px;
+    margin-top: 12px;
+}
+
+.gauge_body{
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background-color: rgba(255, 255, 255, 0.3);;
+    position: relative;
+    border-top-left-radius: 100% 200% ;
+    border-top-right-radius: 100% 200% ;
+    overflow: hidden;
+}
+
+.gauge-fill{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    background: #FED7AA;
+    transform-origin: center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
+}
+.gauge-cover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 150%;
+    background-color: #5C64B7;
+    position: absolute;
+    border-radius: 50%;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.gauge-text{
+    color: #ECECEC;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}

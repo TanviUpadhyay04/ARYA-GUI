@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARYA GUI</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="gauge.css" />
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/standalone/vis-network.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  
+   
+    
+    </head>
+<body>
+  
+    <div class="fullscreen">
+    <!--NAVBAR-->
+    <div class="containers">
+      <div class="logo-flag">
+        <img class="logo" src="images/Arya logo.png" alt="">
+        <img class="flag" src="images/Flag_of_India.png" alt="">
+      </div>
+           <div class="team-name"> 
+               <h1>TEAM DJS ARYA</h1>
+           </div>
+           <div class="nav-box-2">
+            <div class="box-text-2">
+                <img class="team-id" src="images/Team ID.png" alt="">
+               <div class="div-text"><h2>Team ID 2005</h2>
+               </div>
+                </div>
+           </div>
+           <div class="nav-box-1">
+            <div class="box-text-1">
+                <img class="mission-time" src="images/Mission Time.png" alt="">
+                <h2>Mission Time  03:42:46.15</h2>
+                </div>
+           </div>
+           
+           <div class="buttons">
+                <div class="button-flex">
+                <a href="#" class="button">
+                    <img class="play" src="images/heroicons-solid_play.png" alt=""></a>
+                    <a href="#" class="button">
+                        <img class="play" src="images/carbon_stop-filled.png" alt=""></a>
+                        <a href="#" class="button">
+                            <img class="play" src="images/pepicons-print_arrow-spin.png" alt=""></a>
+                        </div>
+              </div>    
+       
+          <div class="simulation-mode">
+            <div class="sim-font">
+            SIMULATION MODE
+          </div>
+            <div class="toggle-switch">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+              <div class="enter-command">
+                  <div class="sim-command">
+                    <input type="text" name="name" class="input-field" placeholder="Enter the command" autocomplete="off">
+                  </div>
+                  <div class="submit">
+                    <a href="#" class="enter-button">
+                      <img class="input-command" src="images/arrow-right (1).png" alt=""></a>
+                  </div>
+                 
+                </div>
+               <div class="com-draft">
+                <div class="com">
+                  <div class="drop-down">
+                   COM:
+                  </div>
+                  <div class="numbers">
+                    
+                  </div>
+      
+                </div>
+                <div class="draft">
+                  <div class="draft-drop-down">
+                   DRAFT:
+                  </div>
+                  <div class="draft-box">
+                    
+                  </div>
+      
+                </div>
+              </div>
+      
+                <div class="air-speed">
+                  <div class="air-speed-font">AIR SPEED: 
+                    <div class="speed-count">65.6</div>
+      
+                </div>
+                
+                    <div class="gauge">
+                      <div class="gauge_body">
+                        <div class="gauge-fill"></div>
+                        <div class="gauge-cover">
+                          <div class="gauge-text">
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+      
+               
+                </div>
+                
+                   
+    </div>
+    <div class="big-box">
+    <!--TELEMETRY-->
+    <div class="main-box">
+      <div class="telemetry">
+       
+          <div class="telemetry-data">
+            <div class="telemetry-points">
+              <div class="telemetry-box">
+                <div class="telemetry-font"> PACKET_COUNT: <br> <div class="data">125</div></div>
+              </div>
+
+              <div class="telemetry-box-1">
+                <div class="telemetry-font">PRESSURE: <br><div class="data"> 100.3</div> </div>
+              </div>
+
+              <div class="telemetry-box-2">
+                <div class="telemetry-font">STATE: <br> <div class="data">7</div> </div>
+              </div>
+              <div class="telemetry-box-3">
+                <div class="telemetry-font">HS_DEPLOYED: <br><div class="data">P</div> </div>
+              </div>
+              <div class="telemetry-box-4">
+                <div class="telemetry-font">ROT_Z: <br><div class="data">5.8 </div> </div>
+              </div>
+            </div>
+            
+            <div class="telemetry-points">
+              <div class="telemetry-box">
+                <div class="telemetry-font">CMD_ECHO: <br><div class="data">CXON</div>  </div>
+              </div>
+              <div class="telemetry-box-1">
+                <div class="telemetry-font">GPS_TIME: <br> <div class="data">03:42:46</div> </div>
+              </div>
+
+              <div class="telemetry-box-2">
+                <div class="telemetry-font">GPS_ALTITUDE: <br><div class="data">0.0</div> </div>
+              </div>
+              <div class="telemetry-box-3">
+                <div class="telemetry-font">PC_DEPLOYED: <br><div class="data">C</div> </div>
+              </div>
+              <div class="telemetry-box-4">
+                <div class="telemetry-font">VOLTAGE: <br><div class="data">5.2</div> </div>
+              </div>
+            </div>
+           
+            <div class="telemetry-points">
+            <div class="telemetry-box">
+                <div class="telemetry-font">GPS_LAT,LONG: <br>19.5643 , 14.6543 </div>
+              </div>
+
+              <div class="telemetry-box-1">
+                <div class="telemetry-font">GPS_SATS: <br> <div class="data">4</div> </div>
+              </div>
+              <div class="telemetry-box-2">
+                <div class="telemetry-font">MODE: <br><div class="data">F</div> </div>
+              </div>
+
+              <div class="telemetry-box-3">
+                <div class="telemetry-font">TILT_X, TILT_Y: <br><div class="data"> 7.86 , 9.09</div></div>
+              </div>
+              <div class="telemetry-box-4">
+                <div class="telemetry-font">TEMPERATURE: <br><div class="data">32.86</div> </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+    <div class="software-states">
+      <div class="seven-states">
+        <div class="states-fonts">
+        SOFTWARE STATES
+      </div>
+      </div>
+      <div class="wrapper">
+        <div class="timeline-area">
+          <div class="line-area"></div>
+          <div class="single-item active">
+            <div class="under-text">
+              <span>LAUNCH_WAIT</span>
+            </div>
+            <div class="img-area">
+              <a href="#">
+                <img src="images/Point.png" alt="">
+
+              </a>
+            </div>
+          </div>
+          <div class="single-item  ">
+            <div class="under-text">
+            <span>ASCENT</span>
+          </div>
+            <div class="img-area">
+              <a href="#">
+                <img src="images/Point.png" alt="">
+                </a>
+                
+            </div>
+            
+          </div>
+          <div class="single-item  ">
+            <div class="under-text">
+              <span>SEPARATION</span>
+            </div>
+            <div class="img-area">
+              <a href="point-hover">
+                <img src="images/Point.png" alt="">
+                </a>
+            </div>
+          </div>
+          <div class="single-item  ">
+            <div class="under-text">
+              <span>DESCENT</span>
+            </div>
+            <div class="img-area">
+              <a href="point-hover">
+                <img src="images/Point.png" alt="">
+                </a>
+            </div>
+          </div>
+          <div class="single-item  ">
+            <div class="under-text">
+              <span>HS_RELEASE</span>
+            </div>
+            <div class="img-area">
+              <a href="point-hover">
+                <img src="images/Point.png" alt="">
+                </a>
+            </div>
+          </div>
+          <div class="single-item  ">
+            <div class="under-text">
+              <span>LANDED</span>
+            </div>
+            <div class="img-area">
+              <a href="point-hover">
+                <img src="images/Point.png" alt="">
+                
+              </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="change-slides">
+    <div class="options">
+      <div class="graph">
+          <div class="font"><button class="font1" id="all-graphs" onclick="hideElements1()">GRAPHS
+            
+          </button>
+            
+          </div>
+      </div>
+      <div class="csv">
+          <div class="csv-style"><button class="font1" id="all-csv" onclick="hideElements2()">CSV
+           
+          </button>
+            
+          </div>
+      </div>
+      <div class="co-ordinates">
+         <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="hideElements3()">CO-ORDINATES
+          
+         </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="graphs">
+        <div class="graph-box">
+          <div class="pressure">
+            PRESSURE
+            <div class="pressure-graph">
+             <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="pressure">
+            TEMPERATURE
+            <div class="pressure-graph">
+              <canvas id="myChart_temp"></canvas>
+             </div>
+          </div>
+
+        </div>
+        <div class="graph-box">
+          <div class="pressure">
+            ALTITUDE
+            <div class="pressure-graph">
+              <canvas id="myChart_alt"></canvas>
+             </div>
+          </div>
+          <div class="pressure">
+            3D GRAPH
+            <div class="three-div"></div>
+            <div id="staticGraph"></div>
+<div id="dynamicGraph"></div>
+
+
+          </div>
+    </div>
+    <div class="graph-box">
+      <div class="pressure">
+        VOLTAGE
+        <div class="pressure-graph">
+          <canvas id="myChart_volt"></canvas>
+         </div>
+      </div>
+      <div class="pressure">
+        TILT_X,TILT_Y
+        <div class="pressure-graph">
+          <canvas id="myChart_tilt"></canvas>
+         </div>
+      </div>
+
+      </div>
+  </div>
+
+</div>
+</body>
+
+<!--2D Graphs-->
+<script>
+  var data = {
+    labels: [],
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: [],
+        borderColor: '#5C64B7',
+        lineTension: 0.22,
+        backgroundColor: '#E5E7FD'
+      }
+    ]
+  };
+
+  var config = {
+    type: 'line',
+    data: data,
+  };
+
+  var myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+  var myChart_temp = new Chart(
+    document.getElementById('myChart_temp'),
+    config
+  );
+  var myChart_alt = new Chart(
+    document.getElementById('myChart_alt'),
+    config
+  );
+  var myChart_volt = new Chart(
+    document.getElementById('myChart_volt'),
+    config
+  );
+  var myChart_tilt = new Chart(
+    document.getElementById('myChart_tilt'),
+    config
+  );
+
+  window.setInterval(mycallback, 1000);
+
+  function mycallback() {
+    var now = new Date();
+    now = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    var value = Math.floor(Math.random() * 1000);
+    
+    
+    if (data.labels.length >= 10) {
+      data.labels.shift();
+      data.datasets[0].data.shift();
+    }
+
+    data.labels.push(now);
+    data.datasets[0].data.push(value);
+
+    myChart.update();
+    myChart_temp.update();
+    myChart_alt.update();
+    myChart_volt.update();
+    myChart_tilt.update();
+  }
+</script>
+
+
+<!--Gauge-->
+
+<script>
+  const gaugeElement = document.querySelector(".gauge");
+  const valuesArray = [0.1,0.4,0.6,0.2,0.3,0.8]; 
+
+  function setGaugeValue(gauge, value) {
+    if (value < 0 || value > 1) {
+      return;
+    }
+
+    gauge.querySelector(".gauge-fill").style.transform = `rotate(${value / 2}turn)`;
+    gauge.querySelector(".gauge-text").textContent = `${Math.round(value * 100)}%`;
+  }
+
+  
+  let index = 0;
+  setInterval(() => {
+    setGaugeValue(gaugeElement, valuesArray[index]);
+    index = (index + 1) % valuesArray.length;
+  }, 1000); 
+</script>
+
+</script>
+
+<!--Blinking Timeline-->
+
+
+<script>
+  function blinkItems() {
+      const items = document.querySelectorAll('.single-item');
+
+      function blink(index) {
+          if (index >= items.length) {
+              index = 0; 
+          }
+
+          setTimeout(() => {
+              items[index].classList.add('active');
+              setTimeout(() => {
+                  items[index].classList.remove('active');
+                  blink(index + 1);
+              }, 1000); 
+          }, 1000); 
+      }
+
+      blink(0); 
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', blinkItems);
+</script>
+
+<script>
+  
+  const nodes = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+  ];
+
+  const edges = [
+    { from: 1, to: 2 },
+    { from: 2, to: 3 },
+    { from: 3, to: 1 },
+  ];
+
+  const container = document.getElementById('visGraph');
+  const data = { nodes, edges };
+  const options = {};
+  const network = new vis.Network(container, data, options);
+</script>
+
+
+
+
+
+</html> 
