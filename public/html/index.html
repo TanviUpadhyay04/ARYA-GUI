@@ -6,11 +6,18 @@
     <title>ARYA GUI</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/gauge.css"/>
+    <!--3D GRAPH-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js" integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script defer src="../js/script.js"></script>
+    
+   
     <!-- Example: -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+
+<!-- <script  src="../js/script.js"></script> -->
+
 
     </head>
 <body>
@@ -18,15 +25,15 @@
     <!--NAVBAR-->
     <div class="containers">
       <div class="logo-flag">
-        <img class="logo" src="images/Arya logo.png" alt="">
-        <img class="flag" src="images/Flag_of_India.png" alt="">
+        <img class="logo" src="../images/Arya logo.png" alt="">
+        <img class="flag" src="../images/Flag_of_India.png" alt="">
       </div>
            <div class="team-name"> 
                <h1>TEAM DJS ARYA</h1>
            </div>
            <div class="nav-box-2">
             <div class="box-text-2">
-                <img class="team-id" src="images/Team ID.png" alt="">
+                <img class="team-id" src="../images/Team ID.png" alt="">
                <div class="div-text"><h2>Team ID 2005</h2>
                </div>
                 </div>
@@ -306,8 +313,10 @@
           <div class="pressure">
             3D GRAPH
             <div class="three-div"></div>
-            <div id="staticGraph"></div>
+            <!-- <div id="staticGraph"></div> -->
             <div id="dynamicGraph"></div>
+           
+           
           </div>
         </div>
     <div class="graph-box">
@@ -327,6 +336,8 @@
   <div class="csv hide" id="csv"></div>
   <div class="coordinates hide" id="coordinates"></div>
 </div>
+
+
 </body>
 
 <!--2D Graphs-->
@@ -471,6 +482,96 @@
 
 
 
+<script >
+  
+// var data2 = new vis.DataSet();
 
+// var counter2 = 0;
+
+// var options2 = {
+//     width: '450px',
+//     height: '300px',
+//     style: 'bar-size', 
+//     showGrid: true,
+//     showShadow: false,
+//     keepAspectRatio: true,
+//     verticalRatio: 0.5,
+//     xLabel: 'Latitude',
+//     yLabel: 'Longitude',
+//     zLabel: 'Altitude',
+// };
+
+// var container2 = document.getElementById('dynamicGraph');
+
+
+
+// data2.add({
+//     id: counter2++,
+//     x: Math.random() * 100,
+//     y: Math.random() * 100,
+//     z: Math.random() * 100,
+//     style: Math.random() * 20 
+// });
+// var graph3d = new vis.Graph3d(container2, data2, options2);
+
+// setInterval(function() {
+//     data2.add({
+//         id: counter2++,
+//         x: Math.random() * 100,
+//         y: Math.random() * 100,
+//         z: Math.random() * 100,
+//         style: Math.random() * 20 
+//     });
+// }, 1000); 
+
+
+var data2 = new vis.DataSet();
+var counter2 = 0;
+
+// Arrays with 10 values for x, y, z, and style
+var xValues = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+var yValues = [15, 25, 35, 45, 55, 65, 75, 85, 95, 105];
+var zValues = [20, 30, 40, 50, 60, 70, 80, 90, 100, 110];
+var styleValues = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+var options2 = {
+    width: '450px',
+    height: '300px',
+    style: 'bar-size', 
+    showGrid: true,
+    showShadow: false,
+    keepAspectRatio: true,
+    verticalRatio: 0.5,
+    xLabel: 'Latitude',
+    yLabel: 'Longitude',
+    zLabel: 'Altitude',
+};
+
+var container2 = document.getElementById('dynamicGraph');
+
+// Add initial data point from arrays
+data2.add({
+    id: counter2++,
+    x: xValues[counter2 % xValues.length],
+    y: yValues[counter2 % yValues.length],
+    z: zValues[counter2 % zValues.length],
+    style: styleValues[counter2 % styleValues.length]
+});
+
+var graph3d = new vis.Graph3d(container2, data2, options2);
+
+setInterval(function() {
+    // Update one data point at a time from arrays
+    data2.update({
+        id: counter2++,
+        x: xValues[counter2 % xValues.length],
+        y: yValues[counter2 % yValues.length],
+        z: zValues[counter2 % zValues.length],
+        style: styleValues[counter2 % styleValues.length]
+    });
+}, 1000);
+
+
+</script>
 
 </html> 
