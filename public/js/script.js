@@ -127,21 +127,18 @@ const graphs = document.getElementById("graphs");
 const csv = document.getElementById("csv");
 const coordinates = document.getElementById("coordinates");
 
-function showElement1() {
-  graphs.classList.remove("hide");
-  csv.classList.add("hide");
-  coordinates.classList.add("hide");
-  graphs.classList.add("show");
-}
-function showElement2() {
-  csv.classList.remove("hide");
-  graphs.classList.add("hide");
-  coordinates.classList.add("hide");
-  csv.classList.add("show");
-}
-function showElement3() {
-  coordinates.classList.remove("hide");
-  graphs.classList.add("hide");
-  csv.classList.add("hide");
-  coordinates.classList.add("show");
+function showTab(tabNumber) {
+  // Get all tabs
+  let tabs = document.querySelectorAll('.tab-content');
+
+  // Hide all tabs
+  tabs.forEach(tab => {
+      tab.classList.add('hide');
+  });
+
+  // Show the selected tab
+  let selectedTab = document.getElementById(`tab${tabNumber}`);
+  if (selectedTab) {
+      selectedTab.classList.remove('hide');
+  }
 }
