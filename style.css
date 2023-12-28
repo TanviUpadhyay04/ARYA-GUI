@@ -18,14 +18,13 @@
     position:fixed;
     top: 0;
     z-index: 1000;
-    
 }
 .data{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
-   font-weight: 500;
-   margin-top: 5px;
+    font-weight: 500;
+    margin-top: 5px;
 }
 .logo-flag{
     display: flex;
