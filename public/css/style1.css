@@ -657,3 +657,15 @@ select:focus {
     background-color: #546fff;
     color: white;
 }
+.graphs{
+    display: inline-block;
+}
+.csv{
+    display: inline-block;
+}
+.coordinates{
+    display: inline-block;
+}
+.tab-content{
+    margin: 10px 20px;
+}

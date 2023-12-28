@@ -336,28 +336,28 @@
       <div class="change-slides">
         <div class="options">
           <div class="graph">
-            <div class="font"><button class="font1 active-button" id="all-graphs" onclick="showTab(1)">GRAPHS
+            <div class="font"><button class="font1 active-button" id="all-graphs" onclick="hideElements()">GRAPHS <!--showTab(1)-->
 
               </button>
 
             </div>
           </div>
           <div class="csv">
-            <div class="csv-style"><button class="font1" id="all-csv" onclick="showTab(2)">CSV
+            <div class="csv-style"><button class="font1" id="all-csv" onclick="hideElements2()">CSV
 
               </button>
 
             </div>
           </div>
           <div class="co-ordinates">
-            <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="showTab(3)">CO-ORDINATES
+            <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="hideElements3()">CO-ORDINATES
 
               </button>
 
             </div>
           </div>
         </div>
-        <div class="tab-content " id="tab1">
+        <div class="tab-content graphs" id="tab1">
           <div class="graph-box">
             <div class="pressure">
               PRESSURE
@@ -410,7 +410,7 @@
           </div>
         </div>
         <!--CSV-->
-        <div class="tab-content hide" id="tab2">
+        <div class="tab-content hide csv" id="tab2">
           <table>
             <tr>
               <th>Mission<br />_time</th>
@@ -920,7 +920,7 @@
             </tr>
           </table>
         </div>
-        <div class="tab-content hide" id="tab3" style="width: 1200px; height: 400px;"></div>
+        <div class="tab-content hide coordinates" id="tab3" style="width: 1200px; height: 400px;"></div>
       </div>
 </body>
 
