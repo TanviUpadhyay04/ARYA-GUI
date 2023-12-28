@@ -11,10 +11,13 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/vis-network/standalone/vis-network.min.css">
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  
+   
+    
     </head>
 <body>
-
-  <div class="fullscreen">
+  
+    <div class="fullscreen">
     <!--NAVBAR-->
     <div class="containers">
       <div class="logo-flag">
@@ -75,20 +78,35 @@
                   <div class="drop-down">
                    COM:
                   </div>
-                  <div class="numbers">
-                    
-                  </div>
+                  <select class="numbers">
+                    <option class="opts" value="COM1">COM 1</option>
+                    <option class="opts" value="COM2">COM 2</option>
+                    <option class="opts" value="COM3">COM 3</option>
+                    <option class="opts" value="COM4">COM 4 (selected)</option>
+                  </select>
       
                 </div>
-                <div class="draft">
-                  <div class="draft-drop-down">
-                   DRAFT:
-                  </div>
-                  <div class="draft-box">
-                    
-                  </div>
-      
+              </div>
+              <div class="draft">
+                <div class="draft-drop-down">
+                 DRAFT:
                 </div>
+                <select class="draft-box">
+                  <option value="300">300</option>
+                  <option value="600">600</option>
+                  <option value="1200">1200</option>
+                  <option value="2400">2400</option>
+                  <option value="4800">4800</option>
+                  <option value="9600">9600 (selected)</option>
+                  <option value="14400">14400</option>
+                  <option value="19200">19200</option>
+                  <option value="28800">28800</option>
+                  <option value="31250">31250</option>
+                  <option value="38400">38400</option>
+                  <option value="57600">57600</option>
+                  <option value="115200">115200</option>
+                </select>
+    
               </div>
       
                 <div class="air-speed">
