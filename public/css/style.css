@@ -166,14 +166,14 @@
    
     margin-left: 30px;
 }
-/* .coordinates{
-    width: 1000px;
-    height: 500px;
+.coordinates{
+    width: 225px;
+    height: 57px;
     background-color: white;
     border-radius: 10px;
     
     margin-left: 30px;
-} */
+}
 
 .telemetry-data{
     display: flex;

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const graphs = document.getElementById("graphs");
 const csv = document.getElementById("csv");
 const coordinates = document.getElementById("coordinates");
@@ -16,94 +15,11 @@ function showTab(tabNumber) {
   let selectedTab = document.getElementById(`tab${tabNumber}`);
   if (selectedTab) {
     selectedTab.classList.remove("hide");
-=======
-const graphs = document.getElementById("all-graphs");
-const csv = document.getElementById("all-csv");
-const coordinates = document.getElementById("all-coordinates");
-
-// function showTab(tabNumber) {
-//   switch(tabNumber){
-//     case 1 :
-//       graphs.classList.add('active-button');
-//       csv.classList.remove('active-button');
-//       coordinates.classList.remove('active-button');
-//       break;
-//     case 2 :
-//       csv.classList.add('active-button');
-//       coordinates.classList.remove('active-button');
-//       graphs.classList.remove('active-button');
-//       break;
-//     case 3 :
-//       coordinates.classList.add('active-button');
-//       csv.classList.remove('active-button');
-//       graphs.classList.remove('active-button');
-//   }
-//   // Get all tabs
-//   let tabs = document.querySelectorAll('.tab-content');
-
-//   // Hide all tabs
-//   tabs.forEach(tab => {
-//       tab.classList.add('hide');
-//   });
-
-//   // Show the selected tab
-//   let selectedTab = document.getElementById(`tab${tabNumber}`);
-//   if (selectedTab) {
-//       selectedTab.classList.remove('hide');
-//   }
-// }
-
-let d1, d2, d3, d4;
-d2 = window.getComputedStyle(document.getElementById("tab2")).display;
-d1 = window.getComputedStyle(document.getElementById("tab3")).display;
-d3 = window.getComputedStyle(document.getElementById("tab1")).display;
-function scrollToElement(elementId) {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
->>>>>>> 41eec05e95006dd84fa763c38d2412e276e99f46
   }
 }
-function hideElements2() {
-  document.getElementById("tab2").style.display = d2;
-  document.getElementById("tab1").style.display = "none";
-  document.getElementById("tab3").style.display = "none";
-  csv.classList.add("active-button");
-  coordinates.classList.remove("active-button");
-  graphs.classList.remove("active-button");
-}
-
-<<<<<<< HEAD
-const socket = io.connect("http://localhost:3000/");
-
-=======
-function hideElements3() {
-  document.getElementById("tab3").style.display = d3;
-  document.getElementById("tab2").style.display = "none";
-  document.getElementById("tab1").style.display = "none";
-  coordinates.classList.add("active-button");
-  csv.classList.remove("active-button");
-  graphs.classList.remove("active-button");
-}
-
-function hideElements1() {
-  document.getElementById("tab1").style.display = d1;
-  document.getElementById("tab1").style.display = "none";
-  document.getElementById("tab3").style.display = "none";
-  graphs.classList.add("active-button");
-  csv.classList.remove("active-button");
-  coordinates.classList.remove("active-button");
-}
-
-function hideElements4() {
-  document.getElementById("graphs").style.display = "none";
-  document.getElementById("tab2").style.display = "none";
-  document.getElementById("coordinates").style.display = "none";
-}
 
 const socket = io.connect("http://localhost:3000/");
 
->>>>>>> 41eec05e95006dd84fa763c38d2412e276e99f46
 socket.on("connect", () => {
   console.log("Connected to server");
 });
@@ -239,11 +155,7 @@ var layout = {
 
 Plotly.newPlot("airSpeedGraph", data, layout);
 
-<<<<<<< HEAD
 let map = L.map("map").setView([0, 0], 3);
-=======
-let map = L.map("tab3").setView([10, 0], 3);
->>>>>>> 41eec05e95006dd84fa763c38d2412e276e99f46
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
