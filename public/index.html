@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARYA GUI</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/gauge.css"/>
-    <!--3D GRAPH-->
+    <!-- <link rel="stylesheet" href="../css/gauge.css"/> -->
+    <!-- 3D GRAPH
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js" integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     
    
-    <!-- Example: -->
+  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" /> -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js" integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script defer src="../js/script.js"></script>
+<!--leaflet-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!--plotly.js-->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
+
+  
+
 
 
     </head>
@@ -41,7 +51,7 @@
            <div class="nav-box-1">
             <div class="box-text-1">
                 <img class="mission-time" src="images/Mission Time.png" alt="">
-                <h2>Mission Time  03:42:46.15</h2>
+                <h2>Mission Time <div id="MissionTimeValue"> 03:42:46.15</div></h2>
                 </div>
            </div>
            
@@ -99,14 +109,13 @@
               </div>
       
                 <div class="air-speed">
-                  <div class="air-speed-font">AIR SPEED: 
-                    <div class="speed-count">65.6</div>
-      
-                </div>
-                
+                  <div class="air-speed-font">
+                    <!-- <div class="speed-count" id="AirSpeedValue" style="height:57.27px; width:93px">65.6</div> -->
+                    <!-- <div id="airSpeedGraph"></div> -->
                     <div class="gauge">
                       <div class="gauge_body">
-                        <div class="gauge-fill"></div>
+                        AIR SPEED
+                        <div class="gauge-fill" id="airSpeedGraph" style="margin: 0; padding: 0;"></div>
                         <div class="gauge-cover">
                           <div class="gauge-text">
 
@@ -115,6 +124,9 @@
 
                       </div>
                     </div>
+                </div>
+                
+                   
       
                
                 </div>
@@ -129,60 +141,60 @@
           <div class="telemetry-data">
             <div class="telemetry-points">
               <div class="telemetry-box">
-                <div class="telemetry-font"> PACKET_COUNT: <br> <div class="data">125</div></div>
+                <div class="telemetry-font"> PACKET_COUNT: <br> <div class="data" id="PacketCountValue">125</div></div>
               </div>
 
               <div class="telemetry-box-1">
-                <div class="telemetry-font">PRESSURE: <br><div class="data"> 100.3</div> </div>
+                <div class="telemetry-font">PRESSURE: <br><div class="data" id="PressureValue"> 100.3</div> </div>
               </div>
 
               <div class="telemetry-box-2">
-                <div class="telemetry-font">STATE: <br> <div class="data">7</div> </div>
+                <div class="telemetry-font">STATE: <br> <div class="data" id="StateValue">7</div> </div>
               </div>
               <div class="telemetry-box-3">
-                <div class="telemetry-font">HS_DEPLOYED: <br><div class="data">P</div> </div>
+                <div class="telemetry-font">HS_DEPLOYED: <br><div class="data" id="HSValue">P</div> </div>
               </div>
               <div class="telemetry-box-4">
-                <div class="telemetry-font">ROT_Z: <br><div class="data">5.8 </div> </div>
+                <div class="telemetry-font">ROT_Z: <br><div class="data" id="RotZValue">5.8 </div> </div>
               </div>
             </div>
             
             <div class="telemetry-points">
               <div class="telemetry-box">
-                <div class="telemetry-font">CMD_ECHO: <br><div class="data">CXON</div>  </div>
+                <div class="telemetry-font">CMD_ECHO: <br><div class="data" id="EchoValue">CXON</div>  </div>
               </div>
               <div class="telemetry-box-1">
-                <div class="telemetry-font">GPS_TIME: <br> <div class="data">03:42:46</div> </div>
+                <div class="telemetry-font">GPS_TIME: <br> <div class="data" id="GPSTimeValue">03:42:46</div> </div>
               </div>
 
               <div class="telemetry-box-2">
-                <div class="telemetry-font">GPS_ALTITUDE: <br><div class="data">0.0</div> </div>
+                <div class="telemetry-font">GPS_ALTITUDE: <br><div class="data" id="GPSAltitudeValue">0.0</div> </div>
               </div>
               <div class="telemetry-box-3">
-                <div class="telemetry-font">PC_DEPLOYED: <br><div class="data">C</div> </div>
+                <div class="telemetry-font">PC_DEPLOYED: <br><div class="data" id="PCValue">C</div> </div>
               </div>
               <div class="telemetry-box-4">
-                <div class="telemetry-font">VOLTAGE: <br><div class="data">5.2</div> </div>
+                <div class="telemetry-font">VOLTAGE: <br><div class="data" id="VoltageValue">5.2</div> </div>
               </div>
             </div>
            
             <div class="telemetry-points">
             <div class="telemetry-box">
-                <div class="telemetry-font">GPS_LAT,LONG: <br>19.5643 , 14.6543 </div>
+                <div class="telemetry-font">GPS_LAT,LONG: <br>  <div id="GPSLongiValue"></div></div>
               </div>
 
               <div class="telemetry-box-1">
-                <div class="telemetry-font">GPS_SATS: <br> <div class="data">4</div> </div>
+                <div class="telemetry-font">GPS_SATS: <br> <div class="data" id="GPSSatsValue">4</div> </div>
               </div>
               <div class="telemetry-box-2">
-                <div class="telemetry-font">MODE: <br><div class="data">F</div> </div>
+                <div class="telemetry-font">MODE: <br><div class="data" id="ModeValue">F</div> </div>
               </div>
 
               <div class="telemetry-box-3">
-                <div class="telemetry-font">TILT_X, TILT_Y: <br><div class="data"> 7.86 , 9.09</div></div>
+                <div class="telemetry-font">TILT_X, TILT_Y: <br><div class="data"> <div id="TiltXValue"></div></div></div>
               </div>
               <div class="telemetry-box-4">
-                <div class="telemetry-font">TEMPERATURE: <br><div class="data">32.86</div> </div>
+                <div class="telemetry-font">TEMPERATURE: <br><div class="data" id="TemperatureValue">32.86</div> </div>
               </div>
             </div>
           </div>
@@ -291,14 +303,16 @@
         <div class="graph-box">
           <div class="pressure">
             PRESSURE
-            <div class="pressure-graph">
-             <canvas id="myChart"></canvas>
+            <!-- <div class="pressure-graph"> -->
+             
+             <div id="pressureGraph" style="width: 550px; height: 280px;"></div>
             </div>
-          </div>
+          
           <div class="pressure">
             TEMPERATURE
             <div class="pressure-graph">
-              <canvas id="myChart_temp"></canvas>
+              
+              <div id="temperatureGraph" style="width: 550px; height: 280px;"></div>
              </div>
           </div>
         </div>
@@ -306,14 +320,16 @@
           <div class="pressure">
             ALTITUDE
             <div class="pressure-graph">
-              <canvas id="myChart_alt"></canvas>
+            
+              <div id="altitudeGraph" style="width: 550px; height: 280px;"></div>
              </div>
           </div>
           <div class="pressure">
             3D GRAPH
             <div class="three-div"></div>
             <!-- <div id="staticGraph"></div> -->
-            <div id="dynamicGraph"></div>
+
+            <div id="visualization" style="width: 550px; height: 280px;"></div>
            
            
           </div>
@@ -322,13 +338,15 @@
       <div class="pressure">
         VOLTAGE
         <div class="pressure-graph">
-          <canvas id="myChart_volt"></canvas>
+         
+          <div id="voltageGraph" style="width: 550px; height: 280px;"></div>
          </div>
       </div>
       <div class="pressure">
         TILT_X,TILT_Y
         <div class="pressure-graph">
-          <canvas id="myChart_tilt"></canvas>
+         
+          <div id="tiltGraph" style="width: 550px; height: 280px;"></div>
          </div>
          </div>
     </div>
@@ -844,102 +862,20 @@
     </tr>
   </table>
 </div>
-  <div class="tab-content hide" id="tab3"></div>
+<div id = "map" id="coordinates" id="tab3" style="width: 1200px; height: 400px;"></div>
+  
 </div>
 
+<script src="script.js"></script>
 </body>
 
-<!--2D Graphs-->
-<script>
-  var data = {
-    labels: [],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [],
-        borderColor: '#5C64B7',
-        lineTension: 0.22,
-        backgroundColor: '#E5E7FD'
-      }
-    ]
-  };
 
-  var config = {
-    type: 'line',
-    data: data,
-  };
-
-  var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-
-  var myChart_temp = new Chart(
-    document.getElementById('myChart_temp'),
-    config
-  );
-  var myChart_alt = new Chart(
-    document.getElementById('myChart_alt'),
-    config
-  );
-  var myChart_volt = new Chart(
-    document.getElementById('myChart_volt'),
-    config
-  );
-  var myChart_tilt = new Chart(
-    document.getElementById('myChart_tilt'),
-    config
-  );
-
-  window.setInterval(mycallback, 1000);
-
-  function mycallback() {
-    var now = new Date();
-    now = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-    var value = Math.floor(Math.random() * 1000);
-    
-    
-    if (data.labels.length >= 10) {
-      data.labels.shift();
-      data.datasets[0].data.shift();
-    }
-
-    data.labels.push(now);
-    data.datasets[0].data.push(value);
-
-    myChart.update();
-    myChart_temp.update();
-    myChart_alt.update();
-    myChart_volt.update();
-    myChart_tilt.update();
-  }
-</script>
 
 
 <!--Gauge-->
 
-<script>
-  const gaugeElement = document.querySelector(".gauge");
-  const valuesArray = [0.1,0.4,0.6,0.2,0.3,0.8]; 
 
-  function setGaugeValue(gauge, value) {
-    if (value < 0 || value > 1) {
-      return;
-    }
 
-    gauge.querySelector(".gauge-fill").style.transform = `rotate(${value / 2}turn)`;
-    gauge.querySelector(".gauge-text").textContent = `${Math.round(value * 100)}%`;
-  }
-
-  
-  let index = 0;
-  setInterval(() => {
-    setGaugeValue(gaugeElement, valuesArray[index]);
-    index = (index + 1) % valuesArray.length;
-  }, 1000); 
-</script>
-
-</script>
 
 <!--Blinking Timeline-->
 
@@ -969,118 +905,7 @@
   document.addEventListener('DOMContentLoaded', blinkItems);
 </script>
 
-<script>
-  
-  const nodes = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-  ];
-
-  const edges = [
-    { from: 1, to: 2 },
-    { from: 2, to: 3 },
-    { from: 3, to: 1 },
-  ];
-
-  const container = document.getElementById('visGraph');
-  const data = { nodes, edges };
-  const options = {};
-  const network = new vis.Network(container, data, options);
-</script>
 
 
-
-<script >
-  
-// var data2 = new vis.DataSet();
-
-// var counter2 = 0;
-
-// var options2 = {
-//     width: '450px',
-//     height: '300px',
-//     style: 'bar-size', 
-//     showGrid: true,
-//     showShadow: false,
-//     keepAspectRatio: true,
-//     verticalRatio: 0.5,
-//     xLabel: 'Latitude',
-//     yLabel: 'Longitude',
-//     zLabel: 'Altitude',
-// };
-
-// var container2 = document.getElementById('dynamicGraph');
-
-
-
-// data2.add({
-//     id: counter2++,
-//     x: Math.random() * 100,
-//     y: Math.random() * 100,
-//     z: Math.random() * 100,
-//     style: Math.random() * 20 
-// });
-// var graph3d = new vis.Graph3d(container2, data2, options2);
-
-// setInterval(function() {
-//     data2.add({
-//         id: counter2++,
-//         x: Math.random() * 100,
-//         y: Math.random() * 100,
-//         z: Math.random() * 100,
-//         style: Math.random() * 20 
-//     });
-// }, 1000); 
-
-
-var data2 = new vis.DataSet();
-var counter2 = 0;
-
-// Arrays with 10 values for x, y, z, and style
-var xValues = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-var yValues = [15, 25, 35, 45, 55, 65, 75, 85, 95, 105];
-var zValues = [20, 30, 40, 50, 60, 70, 80, 90, 100, 110];
-var styleValues = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
-
-var options2 = {
-    width: '450px',
-    height: '300px',
-    style: 'bar-size', 
-    showGrid: true,
-    showShadow: false,
-    keepAspectRatio: true,
-    verticalRatio: 0.5,
-    xLabel: 'Latitude',
-    yLabel: 'Longitude',
-    zLabel: 'Altitude',
-};
-
-var container2 = document.getElementById('dynamicGraph');
-
-// Add initial data point from arrays
-data2.add({
-    id: counter2++,
-    x: xValues[counter2 % xValues.length],
-    y: yValues[counter2 % yValues.length],
-    z: zValues[counter2 % zValues.length],
-    style: styleValues[counter2 % styleValues.length]
-});
-
-var graph3d = new vis.Graph3d(container2, data2, options2);
-
-setInterval(function() {
-    // Update one data point at a time from arrays
-    data2.update({
-        id: counter2++,
-        x: xValues[counter2 % xValues.length],
-        y: yValues[counter2 % yValues.length],
-        z: zValues[counter2 % zValues.length],
-        style: styleValues[counter2 % styleValues.length]
-    });
-}, 1000);
-
-
-</script>
 
 </html> 
