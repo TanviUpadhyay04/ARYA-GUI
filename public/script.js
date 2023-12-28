@@ -1,8 +1,24 @@
-const graphs = document.getElementById("graphs");
-const csv = document.getElementById("csv");
-const coordinates = document.getElementById("coordinates");
+const graphs = document.getElementById("all-graphs");
+const csv = document.getElementById("all-csv");
+const coordinates = document.getElementById("all-coordinates");
 
 function showTab(tabNumber) {
+  switch(tabNumber){
+    case 1 :
+      graphs.classList.add('active-button');
+      csv.classList.remove('active-button');
+      coordinates.classList.remove('active-button');
+      break;
+    case 2 : 
+      csv.classList.add('active-button');
+      coordinates.classList.remove('active-button');
+      graphs.classList.remove('active-button');
+      break;
+    case 3 :
+      coordinates.classList.add('active-button');
+      csv.classList.remove('active-button');
+      graphs.classList.remove('active-button');
+  }
   // Get all tabs
   let tabs = document.querySelectorAll('.tab-content');
 
@@ -105,7 +121,7 @@ var layout = {
 
 
 
-let map = L.map('tab3').setView([0, 0], 3);
+let map = L.map('tab3').setView([10, 0], 3);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 18,

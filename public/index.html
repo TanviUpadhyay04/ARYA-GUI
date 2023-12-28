@@ -97,27 +97,42 @@
             <img class="input-command" src="./images/arrow-right (1).png" alt=""></a>
         </div>
 
-      </div>
-      <div class="com-draft">
+      </div><div class="com-draft">
         <div class="com">
           <div class="drop-down">
-            COM:
+           COM:
           </div>
-          <div class="numbers">
-
-          </div>
-
-        </div>
-        <div class="draft">
-          <div class="draft-drop-down">
-            DRAFT:
-          </div>
-          <div class="draft-box">
-
-          </div>
+          <select class="numbers">
+            <option class="opts" value="COM1">COM 1</option>
+            <option class="opts" value="COM2">COM 2</option>
+            <option class="opts" value="COM3">COM 3</option>
+            <option class="opts" value="COM4">COM 4 (selected)</option>
+          </select>
 
         </div>
       </div>
+      <div class="draft">
+        <div class="draft-drop-down">
+         DRAFT:
+        </div>
+        <select class="draft-box">
+          <option class="opts" value="300">300</option>
+          <option class="opts" value="600">600</option>
+          <option class="opts" value="1200">1200</option>
+          <option class="opts" value="2400">2400</option>
+          <option class="opts" value="4800">4800</option>
+          <option class="opts" value="9600">9600 (selected)</option>
+          <option class="opts" value="14400">14400</option>
+          <option class="opts" value="19200">19200</option>
+          <option class="opts" value="28800">28800</option>
+          <option class="opts" value="31250">31250</option>
+          <option class="opts" value="38400">38400</option>
+          <option class="opts" value="57600">57600</option>
+          <option class="opts" value="115200">115200</option>
+        </select>
+
+      </div>
+
 
       <div class="air-speed">
         <div class="air-speed-font">
@@ -262,7 +277,7 @@
                 </a>
               </div>
             </div>
-            <div class="single-item  ">
+            <div class="single-item down">
               <div class="under-text">
                 <span>ASCENT</span>
               </div>
@@ -284,7 +299,7 @@
                 </a>
               </div>
             </div>
-            <div class="single-item  ">
+            <div class="single-item down ">
               <div class="under-text">
                 <span>DESCENT</span>
               </div>
@@ -304,7 +319,7 @@
                 </a>
               </div>
             </div>
-            <div class="single-item  ">
+            <div class="single-item down ">
               <div class="under-text">
                 <span>LANDED</span>
               </div>
@@ -321,7 +336,7 @@
       <div class="change-slides">
         <div class="options">
           <div class="graph">
-            <div class="font"><button class="font1" id="all-graphs" onclick="showTab(1)">GRAPHS
+            <div class="font"><button class="font1 active-button" id="all-graphs" onclick="showTab(1)">GRAPHS
 
               </button>
 
@@ -906,7 +921,6 @@
           </table>
         </div>
         <div class="tab-content hide" id="tab3" style="width: 1200px; height: 400px;"></div>
-
       </div>
 </body>
 
@@ -945,6 +959,7 @@
 
   document.addEventListener('DOMContentLoaded', blinkItems);
 </script>
+
 
 
 
