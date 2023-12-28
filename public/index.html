@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARYA GUI</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <!-- <link rel="stylesheet" href="../css/gauge.css"/> -->
-    <!-- 3D GRAPH
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARYA GUI</title>
+  <link rel="stylesheet" href="./css/style2.css" />
+  <!-- <link rel="stylesheet" href="../css/gauge.css"/> -->
+  <!-- 3D GRAPH
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js" integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     
@@ -15,319 +16,376 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" /> -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js" integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js"
+    integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!--leaflet-->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<!--plotly.js-->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!--leaflet-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!--plotly.js-->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.socket.io/4.7.2/socket.io.min.js"
+    integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz"
+    crossorigin="anonymous"></script>
 
-  
+
+  <script defer src="script.js"></script>
 
 
 
-    </head>
+</head>
+
 <body>
-    <div class="fullscreen">
+  <div class="fullscreen">
     <!--NAVBAR-->
     <div class="containers">
       <div class="logo-flag">
-        <img class="logo" src="../images/Arya logo.png" alt="">
-        <img class="flag" src="../images/Flag_of_India.png" alt="">
+        <img class="logo" src="./images/Arya logo.png" alt="">
+        <img class="flag" src="./images/Flag_of_India.png" alt="">
       </div>
-           <div class="team-name"> 
-               <h1>TEAM DJS ARYA</h1>
-           </div>
-           <div class="nav-box-2">
-            <div class="box-text-2">
-                <img class="team-id" src="../images/Team ID.png" alt="">
-               <div class="div-text"><h2>Team ID 2005</h2>
-               </div>
-                </div>
-           </div>
-           <div class="nav-box-1">
-            <div class="box-text-1">
-                <img class="mission-time" src="images/Mission Time.png" alt="">
-                <h2>Mission Time <div id="MissionTimeValue"> 03:42:46.15</div></h2>
-                </div>
-           </div>
-           
-           <div class="buttons">
-                <div class="button-flex">
-                <a href="#" class="button">
-                    <img class="play" src="../images/heroicons-solid_play.png" alt=""></a>
-                    <a href="#" class="button">
-                        <img class="play" src="../images/carbon_stop-filled.png" alt=""></a>
-                        <a href="#" class="button">
-                            <img class="play" src="../images/pepicons-print_arrow-spin.png" alt=""></a>
-                        </div>
-              </div>    
-       
-          <div class="simulation-mode">
-            <div class="sim-font">
-            SIMULATION MODE
+      <div class="team-name">
+        <h1>TEAM DJS ARYA</h1>
+      </div>
+      <div class="nav-box-2">
+        <div class="box-text-2">
+          <img class="team-id" src="./images/Team ID.png" alt="">
+          <div class="div-text">
+            <h2>Team ID 2005</h2>
           </div>
-            <div class="toggle-switch">
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-              </label>
-            </div>
+        </div>
+      </div>
+      <div class="nav-box-1">
+        <div class="box-text-1">
+          <img class="mission-time" src="./images/Mission Time.png" alt="">
+          <h2>Mission Time <div id="MissionTimeValue"> 03:42:46.15</div>
+          </h2>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <div class="button-flex">
+          <a href="#" class="button">
+            <img class="play" src="./images/heroicons-solid_play.png" alt=""></a>
+          <a href="#" class="button">
+            <img class="play" src="./images/carbon_stop-filled.png" alt=""></a>
+          <a href="#" class="button">
+            <img class="play" src="./images/pepicons-print_arrow-spin.png" alt=""></a>
+        </div>
+      </div>
+
+      <div class="simulation-mode">
+        <div class="sim-font">
+          SIMULATION MODE
+        </div>
+        <div class="toggle-switch">
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="enter-command">
+        <div class="sim-command">
+          <input type="text" name="name" class="input-field" placeholder="Enter the command" autocomplete="off">
+        </div>
+        <div class="submit">
+          <a href="#" class="enter-button">
+            <img class="input-command" src="./images/arrow-right (1).png" alt=""></a>
+        </div>
+
+      </div><div class="com-draft">
+        <div class="com">
+          <div class="drop-down">
+           COM:
           </div>
-              <div class="enter-command">
-                  <div class="sim-command">
-                    <input type="text" name="name" class="input-field" placeholder="Enter the command" autocomplete="off">
-                  </div>
-                  <div class="submit">
-                    <a href="#" class="enter-button">
-                      <img class="input-command" src="../images/arrow-right (1).png" alt=""></a>
-                  </div>
-                 
-                </div>
-               <div class="com-draft">
-                <div class="com">
-                  <div class="drop-down">
-                   COM:
-                  </div>
-                  <div class="numbers">
-                    
-                  </div>
-      
-                </div>
-                <div class="draft">
-                  <div class="draft-drop-down">
-                   DRAFT:
-                  </div>
-                  <div class="draft-box">
-                    
-                  </div>
-      
+          <select class="numbers">
+            <option class="opts" value="COM1">COM 1</option>
+            <option class="opts" value="COM2">COM 2</option>
+            <option class="opts" value="COM3">COM 3</option>
+            <option class="opts" value="COM4">COM 4 (selected)</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="draft">
+        <div class="draft-drop-down">
+         DRAFT:
+        </div>
+        <select class="draft-box">
+          <option class="opts" value="300">300</option>
+          <option class="opts" value="600">600</option>
+          <option class="opts" value="1200">1200</option>
+          <option class="opts" value="2400">2400</option>
+          <option class="opts" value="4800">4800</option>
+          <option class="opts" value="9600">9600 (selected)</option>
+          <option class="opts" value="14400">14400</option>
+          <option class="opts" value="19200">19200</option>
+          <option class="opts" value="28800">28800</option>
+          <option class="opts" value="31250">31250</option>
+          <option class="opts" value="38400">38400</option>
+          <option class="opts" value="57600">57600</option>
+          <option class="opts" value="115200">115200</option>
+        </select>
+
+      </div>
+
+
+      <div class="air-speed">
+        <div class="air-speed-font">
+          <!-- <div class="speed-count" id="AirSpeedValue" style="height:57.27px; width:93px">65.6</div> -->
+          <!-- <div id="airSpeedGraph"></div> -->
+          <div class="gauge">
+            <div class="gauge_body">
+              AIR SPEED
+              <div class="gauge-fill" id="airSpeedGraph" style="margin: 0; padding: 0;"></div>
+              <div class="gauge-cover">
+                <div class="gauge-text">
+
                 </div>
               </div>
-      
-                <div class="air-speed">
-                  <div class="air-speed-font">
-                    <!-- <div class="speed-count" id="AirSpeedValue" style="height:57.27px; width:93px">65.6</div> -->
-                    <!-- <div id="airSpeedGraph"></div> -->
-                    <div class="gauge">
-                      <div class="gauge_body">
-                        AIR SPEED
-                        <div class="gauge-fill" id="airSpeedGraph" style="margin: 0; padding: 0;"></div>
-                        <div class="gauge-cover">
-                          <div class="gauge-text">
 
-                          </div>
-                        </div>
+            </div>
+          </div>
+        </div>
 
-                      </div>
-                    </div>
-                </div>
-                
-                   
-      
-               
-                </div>
-                
-                   
+
+
+
+      </div>
+
+
     </div>
     <div class="big-box">
-    <!--TELEMETRY-->
-    <div class="main-box">
-      <div class="telemetry">
-       
+      <!--TELEMETRY-->
+      <div class="main-box">
+        <div class="telemetry">
+
           <div class="telemetry-data">
             <div class="telemetry-points">
               <div class="telemetry-box">
-                <div class="telemetry-font"> PACKET_COUNT: <br> <div class="data" id="PacketCountValue">125</div></div>
+                <div class="telemetry-font"> PACKET_COUNT: <br>
+                  <div class="data" id="PacketCountValue">125</div>
+                </div>
               </div>
 
               <div class="telemetry-box-1">
-                <div class="telemetry-font">PRESSURE: <br><div class="data" id="PressureValue"> 100.3</div> </div>
+                <div class="telemetry-font">PRESSURE: <br>
+                  <div class="data" id="PressureValue"> 100.3</div>
+                </div>
               </div>
 
               <div class="telemetry-box-2">
-                <div class="telemetry-font">STATE: <br> <div class="data" id="StateValue">7</div> </div>
+                <div class="telemetry-font">STATE: <br>
+                  <div class="data" id="StateValue">7</div>
+                </div>
               </div>
               <div class="telemetry-box-3">
-                <div class="telemetry-font">HS_DEPLOYED: <br><div class="data" id="HSValue">P</div> </div>
+                <div class="telemetry-font">HS_DEPLOYED: <br>
+                  <div class="data" id="HSValue">P</div>
+                </div>
               </div>
               <div class="telemetry-box-4">
-                <div class="telemetry-font">ROT_Z: <br><div class="data" id="RotZValue">5.8 </div> </div>
+                <div class="telemetry-font">ROT_Z: <br>
+                  <div class="data" id="RotZValue">5.8 </div>
+                </div>
               </div>
             </div>
-            
+
             <div class="telemetry-points">
               <div class="telemetry-box">
-                <div class="telemetry-font">CMD_ECHO: <br><div class="data" id="EchoValue">CXON</div>  </div>
+                <div class="telemetry-font">CMD_ECHO: <br>
+                  <div class="data" id="EchoValue">CXON</div>
+                </div>
               </div>
               <div class="telemetry-box-1">
-                <div class="telemetry-font">GPS_TIME: <br> <div class="data" id="GPSTimeValue">03:42:46</div> </div>
+                <div class="telemetry-font">GPS_TIME: <br>
+                  <div class="data" id="GPSTimeValue">03:42:46</div>
+                </div>
               </div>
 
               <div class="telemetry-box-2">
-                <div class="telemetry-font">GPS_ALTITUDE: <br><div class="data" id="GPSAltitudeValue">0.0</div> </div>
+                <div class="telemetry-font">GPS_ALTITUDE: <br>
+                  <div class="data" id="GPSAltitudeValue">0.0</div>
+                </div>
               </div>
               <div class="telemetry-box-3">
-                <div class="telemetry-font">PC_DEPLOYED: <br><div class="data" id="PCValue">C</div> </div>
+                <div class="telemetry-font">PC_DEPLOYED: <br>
+                  <div class="data" id="PCValue">C</div>
+                </div>
               </div>
               <div class="telemetry-box-4">
-                <div class="telemetry-font">VOLTAGE: <br><div class="data" id="VoltageValue">5.2</div> </div>
+                <div class="telemetry-font">VOLTAGE: <br>
+                  <div class="data" id="VoltageValue">5.2</div>
+                </div>
               </div>
             </div>
-           
+
             <div class="telemetry-points">
-            <div class="telemetry-box">
-                <div class="telemetry-font">GPS_LAT,LONG: <br>  <div id="GPSLongiValue"></div></div>
+              <div class="telemetry-box">
+                <div class="telemetry-font">GPS_LAT,LONG: <br>
+                  <div id="GPSLongiValue"></div>
+                </div>
               </div>
 
               <div class="telemetry-box-1">
-                <div class="telemetry-font">GPS_SATS: <br> <div class="data" id="GPSSatsValue">4</div> </div>
+                <div class="telemetry-font">GPS_SATS: <br>
+                  <div class="data" id="GPSSatsValue">4</div>
+                </div>
               </div>
               <div class="telemetry-box-2">
-                <div class="telemetry-font">MODE: <br><div class="data" id="ModeValue">F</div> </div>
+                <div class="telemetry-font">MODE: <br>
+                  <div class="data" id="ModeValue">F</div>
+                </div>
               </div>
 
               <div class="telemetry-box-3">
-                <div class="telemetry-font">TILT_X, TILT_Y: <br><div class="data"> <div id="TiltXValue"></div></div></div>
+                <div class="telemetry-font">TILT_X, TILT_Y: <br>
+                  <div class="data">
+                    <div id="TiltXValue"></div>
+                  </div>
+                </div>
               </div>
               <div class="telemetry-box-4">
-                <div class="telemetry-font">TEMPERATURE: <br><div class="data" id="TemperatureValue">32.86</div> </div>
+                <div class="telemetry-font">TEMPERATURE: <br>
+                  <div class="data" id="TemperatureValue">32.86</div>
+                </div>
               </div>
             </div>
           </div>
-    </div>
-    </div>
-    <div class="software-states">
-      <div class="seven-states">
-        <div class="states-fonts">
-        SOFTWARE STATES
+        </div>
       </div>
-      </div>
-      <div class="wrapper">
-        <div class="timeline-area">
-          <div class="line-area"></div>
-          <div class="single-item active">
-            <div class="under-text">
-              <span>LAUNCH_WAIT</span>
-            </div>
-            <div class="img-area">
-              <a href="#">
-                <img src="../images/Point.png" alt="">
-              </a>
-            </div>
+      <div class="software-states">
+        <div class="seven-states">
+          <div class="states-fonts">
+            SOFTWARE STATES
           </div>
-          <div class="single-item  ">
-            <div class="under-text">
-            <span>ASCENT</span>
-          </div>
-            <div class="img-area">
-              <a href="#">
-                <img src="../images/Point.png" alt="">
+        </div>
+        <div class="wrapper">
+          <div class="timeline-area">
+            <div class="line-area"></div>
+            <div class="single-item active">
+              <div class="under-text">
+                <span>LAUNCH_WAIT</span>
+              </div>
+              <div class="img-area">
+                <a href="#">
+                  <img src="./images/Point.png" alt="">
                 </a>
-                
+              </div>
             </div>
-            
-          </div>
-          <div class="single-item  ">
-            <div class="under-text">
-              <span>SEPARATION</span>
-            </div>
-            <div class="img-area">
-              <a href="point-hover">
-                <img src="../images/Point.png" alt="">
+            <div class="single-item down">
+              <div class="under-text">
+                <span>ASCENT</span>
+              </div>
+              <div class="img-area">
+                <a href="#">
+                  <img src="./images/Point.png" alt="">
                 </a>
+
+              </div>
+
             </div>
-          </div>
-          <div class="single-item  ">
-            <div class="under-text">
-              <span>DESCENT</span>
-            </div>
-            <div class="img-area">
-              <a href="point-hover">
-                <img src="../images/Point.png" alt="">
+            <div class="single-item  ">
+              <div class="under-text">
+                <span>SEPARATION</span>
+              </div>
+              <div class="img-area">
+                <a href="point-hover">
+                  <img src="./images/Point.png" alt="">
                 </a>
+              </div>
             </div>
-          </div>
-          <div class="single-item  ">
-            <div class="under-text">
-              <span>HS_RELEASE</span>
-            </div>
-            <div class="img-area">
-              <a href="point-hover">
-                <img src="../images/Point.png" alt="">
+            <div class="single-item down ">
+              <div class="under-text">
+                <span>DESCENT</span>
+              </div>
+              <div class="img-area">
+                <a href="point-hover">
+                  <img src="./images/Point.png" alt="">
                 </a>
+              </div>
             </div>
-          </div>
-          <div class="single-item  ">
-            <div class="under-text">
-              <span>LANDED</span>
+            <div class="single-item  ">
+              <div class="under-text">
+                <span>HS_RELEASE</span>
+              </div>
+              <div class="img-area">
+                <a href="point-hover">
+                  <img src="./images/Point.png" alt="">
+                </a>
+              </div>
             </div>
-            <div class="img-area">
-              <a href="point-hover">
-                <img src="../images/Point.png" alt="">
-                
-              </a>
+            <div class="single-item down ">
+              <div class="under-text">
+                <span>LANDED</span>
+              </div>
+              <div class="img-area">
+                <a href="point-hover">
+                  <img src="./images/Point.png" alt="">
+
+                </a>
+              </div>
             </div>
           </div>
         </div>
-    </div>
-    </div>
-    <div class="change-slides">
-    <div class="options">
-      <div class="graph">
-          <div class="font"><button class="font1" id="all-graphs" onclick="showTab(1)">GRAPHS
-            
-          </button>
-            
-          </div>
       </div>
-      <div class="csv">
-          <div class="csv-style"><button class="font1" id="all-csv" onclick="showTab(2)">CSV
-           
-          </button>
-            
-          </div>
-      </div>
-      <div class="co-ordinates">
-         <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="showTab(3)">CO-ORDINATES
-          
-         </button>
-          
-        </div>
-    </div>
-  </div>
-  <div class="tab-content " id="tab1">
-        <div class="graph-box">
-          <div class="pressure">
-            PRESSURE
-            <!-- <div class="pressure-graph"> -->
-             
-             <div id="pressureGraph" style="width: 550px; height: 280px;"></div>
+      <div class="change-slides">
+        <div class="options">
+          <div class="graph">
+            <div class="font"><button class="font1 active-button" id="all-graphs" onclick="hideElements()">GRAPHS <!--showTab(1)-->
+
+              </button>
+
             </div>
-          
-          <div class="pressure">
-            TEMPERATURE
-            <div class="pressure-graph">
-              
-              <div id="temperatureGraph" style="width: 550px; height: 280px;"></div>
-             </div>
+          </div>
+          <div class="csv">
+            <div class="csv-style"><button class="font1" id="all-csv" onclick="hideElements2()">CSV
+
+              </button>
+
+            </div>
+          </div>
+          <div class="co-ordinates">
+            <div class="co-ordinates-style"><button class="font1" id="all-coordinates" onclick="hideElements3()">CO-ORDINATES
+
+              </button>
+
+            </div>
           </div>
         </div>
-        <div class="graph-box">
-          <div class="pressure">
-            ALTITUDE
-            <div class="pressure-graph">
-            
-              <div id="altitudeGraph" style="width: 550px; height: 280px;"></div>
-             </div>
+        <div class="tab-content graphs" id="tab1">
+          <div class="graph-box">
+            <div class="pressure">
+              PRESSURE
+              <!-- <div class="pressure-graph"> -->
+
+              <div id="pressureGraph" style="width: 550px; height: 280px;"></div>
+            </div>
+
+            <div class="pressure">
+              TEMPERATURE
+              <div class="pressure-graph">
+
+                <div id="temperatureGraph" style="width: 550px; height: 280px;"></div>
+              </div>
+            </div>
           </div>
-          <div class="pressure">
-            3D GRAPH
-            <div class="three-div"></div>
-            <!-- <div id="staticGraph"></div> -->
+          <div class="graph-box">
+            <div class="pressure">
+              ALTITUDE
+              <div class="pressure-graph">
+
+                <div id="altitudeGraph" style="width: 550px; height: 280px;"></div>
+              </div>
+            </div>
+            <div class="pressure">
+              3D GRAPH
+              <div class="three-div"></div>
+              <!-- <div id="staticGraph"></div> -->
 
             <div id="visualization" style="width: 550px; height: 280px;"></div>
            
@@ -350,10 +408,10 @@
          </div>
          </div>
     </div>
-  </div>
+  </div>  
   <!--CSV-->
-<div class="tab-content hide" id="tab2">
-  <table id="CSVtable">
+<div class="tab-content hide csv" id="tab2">
+  <table>
     <tr>
       <th>Mission<br/>_time</th>
       <th>Team_id</th>
@@ -362,20 +420,503 @@
       <th>State</th>
       <th>Altitude</th>
       <th>Airspeed</th>
-      <th>HS</th>
-      <th>PC</th>
-      <th>Temp</th>
+      <th>HS_<br/>DEPLOYED</th>
+      <th>PC_<br/>DEPLOYED</th>
+      <th>Temperature</th>
       <th>Pressure</th>
       <th>Voltage</th>
       <th>GPS_TIME</th>
-      <th>GPS_<br/>ALT</th>
-      <th>GPS_<br/>LAT</th>
-      <th>GPS_<br/>LONG</th>
+      <th>GPS_<br/>ALTITUDE</th>
+      <th>GPS_<br/>LATITUDE</th>
+      <th>GPS_<br/>LONGITUDE</th>
       <th>GPS_<br/>SATS</th>
       <th>TILT<br/>_X</th>
       <th>TILT<br/>_Y</th>
       <th>ROT<br/>_Z</th>
       <th>CMD_<br/>ECHO</th>
+    </tr>
+    <tr>
+      <td>5:11:10</td>
+      <td>2005</td>
+      <td>1</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:10</td>
+      <td>0</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.33</td>
+      <td>2.45</td>
+      <td>3.56</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:11</td>
+      <td>2005</td>
+      <td>2</td>
+      <td>F</td>
+      <td>2</td>
+      <td>4.22</td>
+      <td>4.34</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:11</td>
+      <td>4.25</td>
+      <td>51.23</td>
+      <td>67.90</td>
+      <td>1</td>
+      <td>4.56</td>
+      <td>7.45</td>
+      <td>2.2</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:12</td>
+      <td>2005</td>
+      <td>3</td>
+      <td>F</td>
+      <td>1</td>
+      <td>6.54</td>
+      <td>5.78</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.23</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:12</td>
+      <td>6.60</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>4.56</td>
+      <td>2.33</td>
+      <td>7.34</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:13</td>
+      <td>2005</td>
+      <td>4</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>23.11</td>
+      <td>12.23</td>
+      <td>9.00</td>
+      <td>5:11:13</td>
+      <td>0</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.33</td>
+      <td>2.45</td>
+      <td>3.56</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:14</td>
+      <td>2005</td>
+      <td>5</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>26.74</td>
+      <td>5.67</td>
+      <td>9.</td>
+      <td>5:11:14</td>
+      <td>0</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.33</td>
+      <td>2.45</td>
+      <td>3.56</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:15</td>
+      <td>2005</td>
+      <td>6</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:15</td>
+      <td>5.23</td>
+      <td>51.12</td>
+      <td>67.89</td>
+      <td>1</td>
+      <td>2.33</td>
+      <td>2.45</td>
+      <td>3.56</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:16</td>
+      <td>2005</td>
+      <td>7</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:16</td>
+      <td>5.67</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.33</td>
+      <td>2.45</td>
+      <td>3.56</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:17</td>
+      <td>2005</td>
+      <td>8</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:17</td>
+      <td>6.12</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>5.11</td>
+      <td>3.45</td>
+      <td>4.72</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:18</td>
+      <td>2005</td>
+      <td>9</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.01</td>
+      <td>5:11:18</td>
+      <td>6.23</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.03</td>
+      <td>1.05</td>
+      <td>1.89</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:19</td>
+      <td>2005</td>
+      <td>10</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.05</td>
+      <td>5:11:19</td>
+      <td>6.34</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>3.03</td>
+      <td>0.98</td>
+      <td>1.23</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:20</td>
+      <td>2005</td>
+      <td>11</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.10</td>
+      <td>5:11:20</td>
+      <td>6.7</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>4.56</td>
+      <td>2.34</td>
+      <td>3.45</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:21</td>
+      <td>2005</td>
+      <td>12</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.21</td>
+      <td>5:11:21</td>
+      <td>6.81</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>1.23</td>
+      <td>0.98</td>
+      <td>0.97</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:22</td>
+      <td>2005</td>
+      <td>13</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>8.98</td>
+      <td>5:11:22</td>
+      <td>6.89</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>0.97</td>
+      <td>4.55</td>
+      <td>4.12</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:23</td>
+      <td>2005</td>
+      <td>14</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>8.77</td>
+      <td>5:11:23</td>
+      <td>6.92</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.33</td>
+      <td>2.45</td>
+      <td>2.35</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:24</td>
+      <td>2005</td>
+      <td>15</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.05</td>
+      <td>5:11:24</td>
+      <td>6.98</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>0.99</td>
+      <td>1.23</td>
+      <td>1.12</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:25</td>
+      <td>2005</td>
+      <td>16</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.04</td>
+      <td>5:11:25</td>
+      <td>7.1</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>3.33</td>
+      <td>9.25</td>
+      <td>5.66</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:26</td>
+      <td>2005</td>
+      <td>17</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.00</td>
+      <td>5:11:26</td>
+      <td>7.31</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.32</td>
+      <td>4.05</td>
+      <td>3.23</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:27</td>
+      <td>2005</td>
+      <td>18</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>9.14</td>
+      <td>5:11:27</td>
+      <td>7.14</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>2.03</td>
+      <td>1.04</td>
+      <td>3.34</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:28</td>
+      <td>2005</td>
+      <td>19</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>8.87</td>
+      <td>5:11:28</td>
+      <td>7.45</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>5.33</td>
+      <td>1.45</td>
+      <td>2.34</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:29</td>
+      <td>2005</td>
+      <td>20</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>8.68</td>
+      <td>5:11:29</td>
+      <td>7.67</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>4.52</td>
+      <td>2.11</td>
+      <td>3.23</td>
+      <td>CXON</td>
+    </tr>
+    <tr>
+      <td>5:11:30</td>
+      <td>2005</td>
+      <td>21</td>
+      <td>F</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>N</td>
+      <td>N</td>
+      <td>21.33</td>
+      <td>1.22</td>
+      <td>8.99</td>
+      <td>5:11:30</td>
+      <td>6.89</td>
+      <td>51.22</td>
+      <td>67.88</td>
+      <td>1</td>
+      <td>1.23</td>
+      <td>2.12</td>
+      <td>3.30</td>
+      <td>CXON</td>
     </tr>
   </table>
 </div>
@@ -399,30 +940,31 @@
 
 <script>
   function blinkItems() {
-      const items = document.querySelectorAll('.single-item');
+    const items = document.querySelectorAll('.single-item');
 
-      function blink(index) {
-          if (index >= items.length) {
-              index = 0; 
-          }
-
-          setTimeout(() => {
-              items[index].classList.add('active');
-              setTimeout(() => {
-                  items[index].classList.remove('active');
-                  blink(index + 1);
-              }, 1000); 
-          }, 1000); 
+    function blink(index) {
+      if (index >= items.length) {
+        index = 0;
       }
 
-      blink(0); 
+      setTimeout(() => {
+        items[index].classList.add('active');
+        setTimeout(() => {
+          items[index].classList.remove('active');
+          blink(index + 1);
+        }, 1000);
+      }, 1000);
+    }
+
+    blink(0);
   }
 
-  
+
   document.addEventListener('DOMContentLoaded', blinkItems);
 </script>
 
 
 
 
-</html> 
+
+</html>
