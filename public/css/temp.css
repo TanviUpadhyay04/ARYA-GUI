@@ -596,24 +596,32 @@ input:checked + .slider:before{
     margin: 5px;
 }
 
+#tab2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 table{
     border-collapse: collapse;
     border:2px solid black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size:12px;
+    font-size:12.5px;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 th{
     background-color: #5C64B7;
     color:white;
     border:2px solid black;
-    padding:2px;
+    padding:4px;
 }
 
 td{
     border:2px solid black;
-    padding:2px'
+    padding:2px;
+
 }
 
 @keyframes blink {
