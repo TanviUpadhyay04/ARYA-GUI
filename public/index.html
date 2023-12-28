@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARYA GUI</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <!-- <link rel="stylesheet" href="../css/gauge.css"/> -->
     <!-- 3D GRAPH
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.1/vis-graph3d.min.js" integrity="sha512-gThGOE09HjAkB+g+q0kZKlbC+nWfB03W8X+yed4KWw/zx+17Z+P5Jz1vz+DgfBstS0IJ/s3C+DFy8vuq+1acCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -23,13 +23,14 @@
 <!--plotly.js-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
-
-  
+<script defer src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
 
 
+<script defer src="script.js"></script>
 
-    </head>
+
+
+</head>
 <body>
     <div class="fullscreen">
     <!--NAVBAR-->
@@ -862,11 +863,9 @@
     </tr>
   </table>
 </div>
-<div id = "map" id="coordinates" id="tab3" style="width: 1200px; height: 400px;"></div>
+<div class="tab-content hide" id="tab3" style="width: 1200px; height: 400px;"></div>
   
 </div>
-
-<script src="script.js"></script>
 </body>
 
 

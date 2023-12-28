@@ -1,5 +1,3 @@
-
-
 const graphs = document.getElementById("graphs");
 const csv = document.getElementById("csv");
 const coordinates = document.getElementById("coordinates");
@@ -107,7 +105,7 @@ var layout = {
 
 
 
-let map = L.map('map').setView([0, 0], 3);
+let map = L.map('tab3').setView([0, 0], 3);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 18,
