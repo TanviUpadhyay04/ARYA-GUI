@@ -8,7 +8,7 @@ const path = require('path');
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
-
+const cors = require('cors');
 const inputFilePath = 'test.csv';
 const outputFilePath = 'new_data.csv';
 let isFirstRow = true;
@@ -60,7 +60,14 @@ io.on('newRow', data => {
   console.log('Received new data:', data);
 });
 app.use(express.static('public')); 
-
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true,
+}));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
