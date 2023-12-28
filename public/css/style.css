@@ -8,7 +8,6 @@
 
 .containers{
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 840px;
     width: 300px;
@@ -33,13 +32,11 @@
     align-items: center;
     width: 257px;
     height: 119px;
-    
-
+    margin-top: 10px;
 }
 .logo{
     width: 127px;
     height: 119px;
-    
 }
 .flag{
     width: 114px;
@@ -49,11 +46,12 @@
 
 
 .team-name{
-    font-size: 2px;
-    line-height: 150%;
-    color: #fff;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font: 1em sans-serif;
+    color: #ECECEC;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight:bold;
+    margin-bottom: 15px;
+    
 }
 
 .teamid-div{
@@ -64,8 +62,8 @@
 .nav-box-1{
     background-color: #fff;
     width: 231px;
-    height: 89px;
-    margin-bottom: 25px;
+    height: 80px;
+    margin-bottom: 15px;
     border-radius: 10px;
 }
 
@@ -77,33 +75,50 @@
 }
 .mission-time{
     float: left;
-    margin-right: 5px;
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    margin-top: 15px;
+   margin-right: 10px;
 }
 .nav-box-2{
     background-color: #fff;
     width: 179px;
-    height: 76px;
+    height: 80px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.box-text-2{
-    display: flex;
-    
-    color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
-    margin-left: 5px;
-}
+
 .team-id{
     float: left;
     width: 45px;
     height: 45px;
     margin-left: 10px;
     margin-top: 15px;
-    margin-right: 5px;
+    margin-right:18px;
 }
-
+.div-text{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.team-id-text{
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight:600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+   
+}
+.team-id-no{
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    font-weight:700;
+}
 .buttons{
     display: flex;
     justify-content:center;
@@ -264,23 +279,24 @@
     flex-direction: row;
     width: 250px;
     height: 41px;
-    margin-top: 19px;
-    margin-left: 21px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
 }
 .sim-font{
     width: 185px;
     height: 30px;
     color: #ECECEC;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 19px;
+    font-weight:550;
 }
 .switch{
     position: relative;
     display: inline-block;
-    width: 41px;
-    height: 19px;
-    margin: 0 10px;
+    width: 50px;
+    height: 25px;
+    
 }
 .slider{
     position: absolute;
@@ -299,8 +315,8 @@
 {
     position: absolute;
     content: "";
-    width: 17px;
-    height: 17px;
+    width: 22px;
+    height: 22px;
     background-color: #fff;
     transition: .4s;
     border-radius: 50px;
@@ -311,7 +327,7 @@ input:checked + .slider{
 }
 
 input:checked + .slider:before{
-    transform: translateX(22px);
+    transform: translateX(30px);
     
 }
 
@@ -320,7 +336,7 @@ input:checked + .slider:before{
     flex-direction: row;
     width: 250px;
     height: 44px;
-    margin-top: 5px;  
+    
 }
 .sim-command{
     width: 191px;
@@ -352,17 +368,29 @@ input:checked + .slider:before{
     margin-top: 10px;
     margin-left: 10px;
 }
+.com-draft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 184px;
+    height: 100px;
+    margin-top: 20px;
+    
+    
+}
 .com{
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 101px;
     height: 39px;
     color: #ECECEC;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    margin-top:22px ;
-    margin-right: 10px;
+    margin-left: 8px;
+    
+    
 }
 .drop-down{
     width: 14px;
@@ -372,10 +400,9 @@ input:checked + .slider:before{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font: 1.4em sans-serif;
     margin-top: 8px;
-    
 }
 .numbers{
-    width: 49px;
+    width: 150px;
     height: 39px;
     border: 2px solid white;
     margin-left: 50px;
@@ -388,25 +415,20 @@ input:checked + .slider:before{
     flex-direction: row;
     width: 184px;
     height: 39px;
-    margin-top: 22px;
-    
+    align-items: center;
     color: #ECECEC;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
     font-weight: 500;
-    margin-left: 5px;
+    margin-right: 70px;
+    margin-top: 10px;
 }
-.draft-drop-down{
-    width: 40px;
-    height: 30px;
-   margin-top: 8px;
-    
-}
+
 .draft-box{
-    width: 86px;
+    width: 150px;
     height: 39px;
     border: 2px solid white;
-    margin-left: 35px;
+    margin-left: 9px;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
 }
@@ -417,9 +439,8 @@ input:checked + .slider:before{
     height: 85px;
     background-color: #5C64B7;
     border-radius: 7px;
-    margin-top: 32px;
-    margin-left: 8px;
-    margin-right: 7px;
+    margin-top: 20px;
+    
 }
 
 .air-speed-font{
@@ -642,4 +663,20 @@ td{
 }
 .hide{
     display: none;
+}
+select {
+    
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: white;
+}
+
+select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.opts {
+    background-color: #5C64B7;
 }
