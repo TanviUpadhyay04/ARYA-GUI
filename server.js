@@ -12,9 +12,14 @@ const io = socketIO(server);
 const inputFilePath = 'test.csv';
 const outputFilePath = 'new_data.csv';
 let isFirstRow = true;
+let processDataFlag=false;
 
 io.on('connection', socket => {
   console.log('Connected');
+socket.on('startDataProcessing', () => {
+  console.log('Starting CSV READ');
+  processDataFlag=true;
+
 
   const readStream = fs.createReadStream(inputFilePath);
   const writeStream = fs.createWriteStream(outputFilePath, { flags: 'a' });
@@ -25,6 +30,7 @@ io.on('connection', socket => {
     csvStream.pipe(writeStream, { end: false });
 
     for await (const row of readStream.pipe(csv())) {
+      if(processDataFlag==true){
       let currentData = [];
       if (isFirstRow) {
         csvStream.write(row);
@@ -43,6 +49,7 @@ io.on('connection', socket => {
 
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
+    }
 
     csvStream.end();
     console.log('Finished reading CSV.');
@@ -53,6 +60,11 @@ io.on('connection', socket => {
   processData().catch(err => {
     console.error('Error processing data:', err);
   });
+});
+socket.on('stopDataProcessing', () => {
+  processDataFlag = false; // Set flag to stop processing
+});
+
 });
 
 // Display data in terminal 

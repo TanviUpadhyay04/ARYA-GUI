@@ -1,7 +1,7 @@
 const graphs = document.getElementById("graphs");
 const csv = document.getElementById("csv");
 const coordinates = document.getElementById("coordinates");
-
+const socket = io.connect("http://localhost:3000/");
 function showTab(tabNumber) {
   // Get all tabs
   let tabs = document.querySelectorAll(".tab-content");
@@ -17,8 +17,8 @@ function showTab(tabNumber) {
     selectedTab.classList.remove("hide");
   }
 }
+function startDataProcessing(){
 
-const socket = io.connect("http://localhost:3000/");
 
 socket.on("connect", () => {
   console.log("Connected to server");
@@ -161,7 +161,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
 }).addTo(map);
 
-let markers = []; // Array to store markers
+let markers = []; 
 
 function updateMap(data) {
   let latlng = [data.GPS_LATITUDE, data.GPS_LONGITUDE];
@@ -196,11 +196,11 @@ var options = {
   xLabel: "Latitude",
   yLabel: "Longitude",
   zLabel: "Altitude",
-  xMin: -90, // Replace with your minimum x value
-  xMax: 90, // Replace with your maximum x value
-  yMin: -180, // Replace with your minimum y value
-  yMax: 180, // Replace with your maximum y value
-  zMin: 0, // Replace with your minimum z value
+  xMin: -90, 
+  xMax: 90, 
+  yMin: -180, 
+  yMax: 180, 
+  zMin: 0, 
   zMax: 1000,
 };
 
@@ -365,53 +365,20 @@ socket.on("newData", (data) => {
   document.querySelector("#PacketCountValue").textContent = data.PACKET_COUNT;
   document.querySelector("#MissionTimeValue").textContent = data.MISSION_TIME;
 
-  // let current_state=data.STATE;
-  // if(current_state==1){
-  //   old_state.style.backgroundColor = '#95b8d1';
-  //   old_state.style.color='#000000';
-  //   let container=document.getElementById('L');
-  //   container.style.backgroundColor = '#041a43';
-  //   container.style.color='#ffffff';
-  //   old_state=document.getElementById('L');
-  // }
-  // else if(current_state==2){
-  //   old_state.style.backgroundColor = '#95b8d1';
-  //   old_state.style.color='#000000';
-  //   let container=document.getElementById('A');
-  //   container.style.backgroundColor = '#041a43';
-  //   container.style.color='#ffffff';
-  //   old_state=document.getElementById('A');
-  // }
-  // else if(current_state==3){
-  //   old_state.style.backgroundColor = '#95b8d1';
-  //   old_state.style.color='#000000';
-  //   let container=document.getElementById('R');
-  //   container.style.backgroundColor = '#041a43';
-  //   container.style.color='#ffffff';
-  //   old_state=document.getElementById('R');
-  // }
-  // else if(current_state==4){
-  //   old_state.style.backgroundColor = '#95b8d1';
-  //   old_state.style.color='#000000';
-  //   let container=document.getElementById('D');
-  //   container.style.backgroundColor = '#041a43';
-  //   container.style.color='#ffffff';
-  //    old_state=document.getElementById('D');
-  // }
-  // else if(current_state==5){
-  //   old_state.style.backgroundColor = '#95b8d1';
-  //   old_state.style.color='#000000';
-  //   let container=document.getElementById('H');
-  //   container.style.backgroundColor = '#041a43';
-  //   container.style.color='#ffffff';
-  //   old_state=document.getElementById('H');
-  // }
-  // else if(current_state==6){
-  //   old_state.style.backgroundColor = '#95b8d1';
-  //   old_state.style.color='#000000';
-  //   let container=document.getElementById('LG');
-  //   container.style.backgroundColor = '#041a43';
-  //   container.style.color='#ffffff';
-  //   old_state=document.getElementById('LG');
-  // }
+
+});
+}
+
+const startButton = document.getElementById("startButton");
+startButton.addEventListener("click", () => {
+  
+  socket.emit("startDataProcessing");
+  startDataProcessing();
+});
+const stopButton = document.getElementById("stopButton");
+stopButton.addEventListener("click", () => {
+
+  socket.emit("stopDataProcessing");
+  console.log("Stopped")
+ 
 });
