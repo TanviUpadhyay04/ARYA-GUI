@@ -9,8 +9,29 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+const telemetryFolder = './telemetry_data'; 
 const inputFilePath = 'test.csv';
-const outputFilePath = 'new_data.csv';
+const now = new Date();
+
+const year = now.getFullYear(); 
+const month = String(now.getMonth() + 1); 
+const day = String(now.getDate()); 
+
+const hours = String(now.getHours()); // Get the hours (0-23)
+const minutes = String(now.getMinutes()) // Get the minutes
+const seconds = String(now.getSeconds()); // Get the seconds
+
+const currentDateAndTime = `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+const outputFileName = `new_data_${currentDateAndTime}.csv`; // Timestamp as part of the filename
+
+// Create the telemetry_data folder if it doesn't exist
+if (!fs.existsSync(telemetryFolder)) {
+  fs.mkdirSync(telemetryFolder);
+}
+
+const outputFilePath = path.join(telemetryFolder, outputFileName); 
+
+
 let isFirstRow = true;
 let processDataFlag=false;
 
