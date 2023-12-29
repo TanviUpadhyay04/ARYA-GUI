@@ -556,7 +556,7 @@ input:checked + .slider:before{
     
 }
 .font1:hover {
-    background-color: #546FFF; /* Change background color on hover */
+    background-color: #8295ff; /* Change background color on hover */
     color: white;
   }
   .teamid-div{
@@ -657,4 +657,32 @@ td{
 }
 .hide{
     display: none;
+}
+
+.down{
+    position: absolute;
+    top : 30px;
+    right: 25px;
+}
+.active-button{
+    background-color: #546fff;
+    color: white;
+}
+.graphs{
+    display: inline-block;
+}
+.csv{
+    display: inline-block;
+}
+.coordinates{
+    display: inline-block;
+}
+.tab-content{
+    margin: 10px 20px;
+}
+
+#tab2{
+    width: 1200px;
+    height: 400px;
+    overflow: scroll;
 }

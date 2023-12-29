@@ -1,24 +1,57 @@
-const graphs = document.getElementById("graphs");
-const csv = document.getElementById("csv");
-const coordinates = document.getElementById("coordinates");
+// const graphs = document.getElementById("tab1");
+// const csv = document.getElementById("tab2");
+// const coordinates = document.getElementById("tab3");
 const socket = io.connect("http://localhost:3000/");
-function showTab(tabNumber) {
-  // Get all tabs
-  let tabs = document.querySelectorAll(".tab-content");
+// function showTab(tabNumber) {
+//   // Get all tabs
+//   let tabs = document.querySelectorAll(".tab-content");
 
-  // Hide all tabs
-  tabs.forEach((tab) => {
-    tab.classList.add("hide");
-  });
+//   // Hide all tabs
+//   tabs.forEach((tab) => {
+//     tab.classList.add("hide");
+//   });
 
-  // Show the selected tab
-  let selectedTab = document.getElementById(`tab${tabNumber}`);
-  if (selectedTab) {
-    selectedTab.classList.remove("hide");
-  }
+//   // Show the selected tab
+//   let selectedTab = document.getElementById(`tab${tabNumber}`);
+//   if (selectedTab) {
+//     selectedTab.classList.remove("hide");
+//   }
+// }
+
+let d1, d2, d3;
+ d2=window.getComputedStyle( document.getElementById('tab2')).display;
+ d1=window.getComputedStyle( document.getElementById('tab1')).display;
+ d3=window.getComputedStyle( document.getElementById('tab3')).display;
+
+function hideElements2() {
+  document.getElementById('tab2').style.display = d2;
+  document.getElementById('tab1').style.display = 'none';
+  document.getElementById('tab3').style.display = 'none';
+  document.getElementById('all-csv').classList.add('active-button');
+  document.getElementById('all-graphs').classList.remove('active-button');
+  document.getElementById('all-coordinates').classList.remove('active-button');
 }
-function startDataProcessing(){
 
+function hideElements3() {
+  document.getElementById('tab3').style.display = d3;
+  document.getElementById('tab2').style.display = 'none';
+  document.getElementById('tab1').style.display = 'none';
+  document.getElementById('all-graphs').classList.remove('active-button');
+  document.getElementById('all-csv').classList.remove('active-button');
+  document.getElementById('all-coordinates').classList.add('active-button');
+}
+
+
+function hideElements1() {
+  document.getElementById('tab1').style.display = d1;
+  document.getElementById('tab2').style.display = 'none';
+  document.getElementById('tab3').style.display = 'none';
+  document.getElementById('all-coordinates').classList.remove('active-button');
+  document.getElementById('all-csv').classList.remove('active-button');
+  document.getElementById('all-graphs').classList.add('active-button');
+}
+
+function startDataProcessing(){
 
 socket.on("connect", () => {
   console.log("Connected to server");
@@ -155,7 +188,7 @@ var layout = {
 
 Plotly.newPlot("airSpeedGraph", data, layout);
 
-let map = L.map("map").setView([0, 0], 3);
+let map = L.map("tab3").setView([0, 0], 3);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
